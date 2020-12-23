@@ -116,106 +116,106 @@
 			<groupId>com.businessobjects</groupId>
 			<artifactId>crystal-common</artifactId>
 			<version>12.2.220.2677</version>
-			<!-- <scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/crystal-common-12.2.220.2677.jar</systemPath> -->
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/crystal-common-12.2.220.2677.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.businessobjects</groupId>
 			<artifactId>crystal-reports-runtime</artifactId>
 			<version>12.2.220.2677</version>
-			<!-- <scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/crystal-reports-runtime-12.2.220.2677.jar</systemPath> -->
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/crystal-reports-runtime-12.2.220.2677.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.businessobjects</groupId>
 			<artifactId>cvom</artifactId>
 			<version>12.2.220.r2677_v20160627</version>
-			<!-- <scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/cvom-12.2.220.r2677_v20160627.jar</systemPath> -->
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/cvom-12.2.220.r2677_v20160627.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.crystaldecisions</groupId>
 			<artifactId>database-connectors</artifactId>
 			<version>1.5.0_12-b04</version>
-			<!-- <scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/database-connectors-1.5.0_12-b04.jar</systemPath> -->
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/database-connectors-1.5.0_12-b04.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.businessobjects</groupId>
 			<artifactId>jdbinterface</artifactId>
 			<version>12.2.220.2677</version>
-			<!-- <scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/jdbinterface-12.2.220.2677.jar</systemPath> -->
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/jdbinterface-12.2.220.2677.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.crystaldecisions</groupId>
 			<artifactId>reports</artifactId>
 			<version>12.2.220.2677</version>
-			<!-- <scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/reports-12.2.220.2677.jar</systemPath> -->
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/reports-12.2.220.2677.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.crystaldecisions</groupId>
 			<artifactId>keycode-decoder</artifactId>
 			<version>12.2.220.2677</version>
-			<!-- <scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/keycode-decoder-12.2.220.2677.jar</systemPath> -->
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/keycode-decoder-12.2.220.2677.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.businessobjects</groupId>
 			<artifactId>logging</artifactId>
 			<version>12.2.220.r2677_v20160627</version>
-			<!-- <scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/logging-12.2.220.r2677_v20160627.jar</systemPath> -->
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/logging-12.2.220.r2677_v20160627.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.businessobjects</groupId>
 			<artifactId>pfjgraphics</artifactId>
 			<version>12.2.220.r2677_v20160627</version>
-			<!-- <scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/pfjgraphics-12.2.220.r2677_v20160627.jar</systemPath> -->
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/pfjgraphics-12.2.220.r2677_v20160627.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.businessobjects</groupId>
 			<artifactId>pojo</artifactId>
 			<version>12.2.220.r2677_v20160627</version>
-			<!-- <scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/pojo-12.2.220.r2677_v20160627.jar</systemPath> -->
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/pojo-12.2.220.r2677_v20160627.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.crystaldecisions</groupId>
 			<artifactId>query-builder</artifactId>
 			<version>12.2.220.2677</version>
-			<!-- <scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/query-builder-12.2.220.2677.jar</systemPath> -->
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/query-builder-12.2.220.2677.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.businessobjects</groupId>
 			<artifactId>web-reporting</artifactId>
 			<version>12.2.220.2677</version>
-			<!-- <scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/web-reporting-12.2.220.2677.jar</systemPath> -->
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/web-reporting-12.2.220.2677.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.crystaldecisions</groupId>
 			<artifactId>xml-connector</artifactId>
 			<version>12.2.220.2677</version>
-			<!-- <scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/xml-connector-12.2.220.2677.jar</systemPath> -->
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/xml-connector-12.2.220.2677.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.businessobjects</groupId>
 			<artifactId>xpp3</artifactId>
 			<version>12.2.220.2677</version>
-			<!-- <scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/xpp3-12.2.220.2677.jar</systemPath> -->
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/xpp3-12.2.220.2677.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.businessobjects</groupId>
 			<artifactId>jai_imageio</artifactId>
 			<version>12.2.220.2677</version>
-			<!-- <scope>system</scope>
-			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/jai_imageio-12.2.220.2677.jar</systemPath> -->
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/jai_imageio-12.2.220.2677.jar</systemPath>
 		</dependency>
 		<!--End of CR Dependencies -->
 	</dependencies>

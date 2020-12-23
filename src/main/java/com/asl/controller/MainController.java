@@ -38,6 +38,7 @@ public class MainController {
 		return "index";
 	}
 
+
 	public void printBill(HttpServletResponse response) throws IOException {
 
 		String reportName = "D:/ASL/caitemlist.rpt";
