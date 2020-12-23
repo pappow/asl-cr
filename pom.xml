@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.4.1</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.asl</groupId>
+	<artifactId>asl-cr</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>asl-cr</name>
+	<description>ASL Cristal Report Generator</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+
+
+		<!--CR Dependencies -->
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<!-- <dependency> <groupId>com.ibm.icu</groupId> <artifactId>icu4j</artifactId> 
+			<version>3.8</version> </dependency> -->
+		<dependency>
+			<groupId>com.ibm.icu</groupId>
+			<artifactId>icu4j</artifactId>
+			<version>67.1</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.azalea.ufl</groupId>
+			<artifactId>barcode</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/barcode-1.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.businessobjects</groupId>
+			<artifactId>crystal-common</artifactId>
+			<version>12.2.220.2677</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/crystal-common-12.2.220.2677.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>com.businessobjects</groupId>
+			<artifactId>crystal-reports-runtime</artifactId>
+			<version>12.2.220.2677</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/crystal-reports-runtime-12.2.220.2677.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>com.businessobjects</groupId>
+			<artifactId>cvom</artifactId>
+			<version>12.2.220.r2677_v20160627</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/cvom-12.2.220.r2677_v20160627.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>com.crystaldecisions</groupId>
+			<artifactId>database-connectors</artifactId>
+			<version>1.5.0_12-b04</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/database-connectors-1.5.0_12-b04.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>com.businessobjects</groupId>
+			<artifactId>jdbinterface</artifactId>
+			<version>12.2.220.2677</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/jdbinterface-12.2.220.2677.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>com.crystaldecisions</groupId>
+			<artifactId>reports</artifactId>
+			<version>12.2.220.2677</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/reports-12.2.220.2677.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>com.crystaldecisions</groupId>
+			<artifactId>keycode-decoder</artifactId>
+			<version>12.2.220.2677</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/keycode-decoder-12.2.220.2677.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>com.businessobjects</groupId>
+			<artifactId>logging</artifactId>
+			<version>12.2.220.r2677_v20160627</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/logging-12.2.220.r2677_v20160627.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>com.businessobjects</groupId>
+			<artifactId>pfjgraphics</artifactId>
+			<version>12.2.220.r2677_v20160627</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/pfjgraphics-12.2.220.r2677_v20160627.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>com.businessobjects</groupId>
+			<artifactId>pojo</artifactId>
+			<version>12.2.220.r2677_v20160627</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/pojo-12.2.220.r2677_v20160627.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>com.crystaldecisions</groupId>
+			<artifactId>query-builder</artifactId>
+			<version>12.2.220.2677</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/query-builder-12.2.220.2677.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>com.businessobjects</groupId>
+			<artifactId>web-reporting</artifactId>
+			<version>12.2.220.2677</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/web-reporting-12.2.220.2677.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>com.crystaldecisions</groupId>
+			<artifactId>xml-connector</artifactId>
+			<version>12.2.220.2677</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/xml-connector-12.2.220.2677.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>com.businessobjects</groupId>
+			<artifactId>xpp3</artifactId>
+			<version>12.2.220.2677</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/xpp3-12.2.220.2677.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>com.businessobjects</groupId>
+			<artifactId>jai_imageio</artifactId>
+			<version>12.2.220.2677</version>
+			<!-- <scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/static/assets/cristal-jars/jai_imageio-12.2.220.2677.jar</systemPath> -->
+		</dependency>
+		<!--End of CR Dependencies -->
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
