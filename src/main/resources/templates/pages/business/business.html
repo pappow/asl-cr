@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Business</title>
+		<meta th:remove="tag" th:include="commons :: common-meta"/>
+		<meta th:remove="tag" th:include="commons :: common-css"/>
+		<meta th:remove="tag" th:include="commons :: common-js"/>
+	</head>
+	<body>
+
+		<!-- Main menu -->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<nav class="navbar navbar-inverse" th:include="commons :: main-menu"></nav>
+				</div>
+			</div>
+		</div>
+
+		<!-- Contet area -->
+		<div class="container">
+			<div class="col-md-12 border-box">
+				Hi there
+			</div>
+		</div>
+
+	</body>
+</html>

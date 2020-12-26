@@ -3,7 +3,7 @@ package com.asl.model;
 import lombok.Data;
 
 @Data
-public class DBConnectInfo {
+public class DBConfig {
 
 	private String jndiName;
 	private String connectionURL;

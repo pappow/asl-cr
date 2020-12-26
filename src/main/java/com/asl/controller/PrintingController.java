@@ -1,6 +1,8 @@
 package com.asl.controller;
 
+import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,7 +28,7 @@ public class PrintingController {
 	private PrintingService printingService;
 
 	@GetMapping
-	public ResponseEntity<byte[]> print(HttpServletRequest request, HttpServletResponse response) {
+	public ResponseEntity<byte[]> print(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String message = "";
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(new MediaType("text", "html"));
@@ -43,12 +45,19 @@ public class PrintingController {
 		reportParams.put("status", "1");
 
 		byte[] byt = null;
-		ByteArrayOutputStream out = printingService.getPDFBytes(reportName, reportTitle, attachment, reportParams);
-		if (out == null) {
+		BufferedInputStream in = printingService.getPDFBytes(reportName, reportTitle, attachment, reportParams);
+		if (in == null) {
 			message = "Can't generate PDF to print";
 			byt = message.getBytes();
 		} else {
-			byt = out.toByteArray();
+			final byte[] data = new byte[1024];
+			ByteArrayOutputStream os = new ByteArrayOutputStream();
+			while (in.read(data) > -1) {
+				os.write(data);
+			}
+
+			byt = os.toByteArray();
+			headers.add("content-disposition", "inline; filename=hello.pdf");
 			headers.setContentType(new MediaType("application", "pdf"));
 		}
 		return new ResponseEntity<>(byt, headers, HttpStatus.OK);
