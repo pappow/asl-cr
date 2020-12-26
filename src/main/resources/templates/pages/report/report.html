@@ -18,11 +18,11 @@
 		</div>
 
 		<!-- Contet area -->
-		<div class="container">
+		<div class="container content-container">
 			<div class="col-md-12 border-box">
-
-				<div th:include="pages/report/reports :: ${reportCode}"></div>
-
+				<form id="mainform" class="form-horizontal" th:action="@{/print}" method="POST">
+					<div th:include="pages/report/reports :: ${reportCode}"></div>
+				</form>
 			</div>
 		</div>
 
