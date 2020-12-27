@@ -3,7 +3,6 @@ package com.asl.controller;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +20,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.thymeleaf.util.StringUtils;
 
 import com.asl.enums.ReportMenu;
 import com.asl.model.RequestParameters;
@@ -62,11 +60,10 @@ public class ReportController extends AbstractController {
 
 		Map<String, String> reportParams = new HashMap<>();
 		for(Map.Entry<String, String> m : rm.getParamMap().entrySet()) {
-			String key = m.getKey();
-			String fieldName = m.getValue();
-			String methodName = "get" + StringUtils.capitalize(key);
-			String method = RequestParameters.invokeGetter(params, key);
-			reportParams.put(fieldName, "900010");
+			String reportParamFieldName = m.getKey();
+			String cristalReportParamName = m.getValue();
+			String method = RequestParameters.invokeGetter(params, reportParamFieldName);
+			reportParams.put(cristalReportParamName, method);
 		}
 
 		
