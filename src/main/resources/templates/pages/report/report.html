@@ -20,8 +20,13 @@
 		<!-- Contet area -->
 		<div class="container content-container">
 			<div class="col-md-12 border-box">
-				<form id="mainform" class="form-horizontal" th:action="@{/print}" method="POST">
-					<div th:include="pages/report/reports :: ${reportCode}"></div>
+				<form id="reportform" class="form-horizontal" th:action="@{/report/print}" method="POST">
+					<input type="hidden" name="reportCode" th:value="${reportCode}"/>
+					<input type="hidden" name="status" value="1"/>
+					<div th:include="pages/report/reports :: ${reportCode}" th:with="df=${'E, dd-MMM-yyyy'}"></div>
+					<div class="col-md-12">
+						<button class="confirm-rpt-btn btn btn-success btn-sm pull-right">Submit</button>
+					</div>
 				</form>
 			</div>
 		</div>

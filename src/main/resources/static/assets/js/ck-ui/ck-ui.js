@@ -200,6 +200,13 @@ ck.ui.config.dateAndTimepicker = function(){
 	});
 }
 
+ck.ui.config.reportForm = function(){
+	$('button.confirm-rpt-btn').on('click', function(e){
+		e.preventDefault();
+		submitReportForm();
+	});
+}
+
 
 /**
  * CK UI INITIALIZATION
@@ -213,6 +220,7 @@ ck.ui.init = function(){
 	ck.ui.config.buttonevent();
 	ck.ui.config.datatable();
 	ck.ui.config.dateAndTimepicker();
+	ck.ui.config.reportForm();
 }
 
 

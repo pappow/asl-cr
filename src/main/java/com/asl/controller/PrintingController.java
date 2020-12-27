@@ -35,7 +35,7 @@ public class PrintingController {
 		headers.add("X-Content-Type-Options", "nosniff");
 
 		// Parameters to send
-		String reportName = "D:/ASL/caitemlist.rpt";
+		String reportName = "D:/ASL/cr-reports/caitemlist.rpt";
 		String reportTitle = "Test Report";
 		boolean attachment = true;
 		Map<String, String> reportParams = new HashMap<>();

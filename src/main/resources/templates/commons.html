@@ -65,7 +65,7 @@
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Report <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li th:each="menu: ${T(com.asl.enums.ReportMenus).values()}">
+						<li th:each="menu: ${T(com.asl.enums.ReportMenu).values()}">
 							<a th:href="@{/report/} + ${menu.code}"><span th:text="${menu.description}"></span></a>
 						</li>
 					</ul>

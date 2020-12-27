@@ -306,6 +306,53 @@ function submitMainForm(customurl){
 	});
 }
 
+
+/**
+ * Submit Report form
+ * @param customurl
+ * @returns
+ */
+function submitReportForm(customurl){
+	if($('form#reportform').length < 1) return;
+	console.log('%cForm submit triggered', 'color: green');
+
+	var targettedForm = $('form#reportform');
+	console.log('%cValidting form','color: green');
+	if(!targettedForm.smkValidate()) return;
+
+	var submitUrl = (customurl != undefined) ? customurl : targettedForm.attr('action');
+	var submitType = targettedForm.attr('method');
+	var formData = $(targettedForm).serializeArray();
+	console.log('%cUrl : ' + submitUrl + ', Type : ' + submitType,'color: green');
+	console.log({formData});
+
+	$.ajax({
+		url : submitUrl,
+		type :submitType,
+		data : formData,
+		beforeSend : loadingMask2.show(),
+		success : function(data) {
+			console.log({data});
+//			if(data.status == 'SUCCESS'){
+//				showMessage(data.status.toLowerCase(), data.message);
+//				if(data.redirecturl){
+//					setTimeout(() => {
+//						window.location.replace(getBasepath() + data.redirecturl);
+//					}, 1500);
+//				}
+//			} else {
+//				showMessage(data.status.toLowerCase(), data.message);
+//			}
+		}, 
+		error : function(jqXHR, status, errorThrown){
+			showMessage(status, "Something went wrong .... ");
+		},
+		complete: loadingMask2.hide()
+	});
+}
+
+
+
 /**
  * Submit modal main form
  * @param customurl
