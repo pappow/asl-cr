@@ -2,6 +2,7 @@ package com.asl.controller;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.util.Base64;
 import java.util.HashMap;
@@ -32,14 +33,20 @@ import com.asl.service.PrintingService;
  */
 @Controller
 @RequestMapping("/report")
-public class ReportController extends AbstractController {
+public class ReportController extends ASLAbstractController {
 
 	@Autowired private PrintingService printingService;
+
+	@GetMapping
+	public String loadReportPage(Model model) {
+		return "pages/report/reportlist";
+	}
 
 	@GetMapping("/{menuCode}")
 	public String loadReportPage(@PathVariable String menuCode, Model model) {
 		model.addAttribute("fieldsList", getReportFieldService(ReportMenu.valueOf(menuCode)).getReportFields());
 		model.addAttribute("reportCode", menuCode.toLowerCase());
+		model.addAttribute("reportName", ReportMenu.valueOf(menuCode).getDescription());
 		return "pages/report/report";
 	}
 
@@ -53,7 +60,7 @@ public class ReportController extends AbstractController {
 		headers.add("X-Content-Type-Options", "nosniff");
 
 		// Parameters to send
-		String reportName = "D:/ASL/cr-reports/" + rm.getReportFile();
+		String reportName = appConfig.getReportTemplatepath() + File.separator + rm.getReportFile();
 		String reportTitle = "Test Report";
 		boolean attachment = true;
 

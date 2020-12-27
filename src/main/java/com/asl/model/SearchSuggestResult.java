@@ -9,7 +9,7 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class DropdownValue {
+public class SearchSuggestResult {
 
 	private String value;
 	private String prompt;

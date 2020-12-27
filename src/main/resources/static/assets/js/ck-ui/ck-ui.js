@@ -201,10 +201,12 @@ ck.ui.config.dateAndTimepicker = function(){
 }
 
 ck.ui.config.reportForm = function(){
-	$('button.confirm-rpt-btn').on('click', function(e){
-		e.preventDefault();
-		submitReportForm();
-	});
+	if($('li.confirm-rpt-btn').length > 0){
+		$('li.confirm-rpt-btn').off('click').on('click', function(e){
+			e.preventDefault();
+			submitReportForm();
+		})
+	}
 }
 
 

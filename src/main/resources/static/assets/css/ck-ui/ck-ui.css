@@ -193,6 +193,41 @@ select.form-control[disabled] {
 	font-weight: normal;
 }
 
+/*
+=========================================
+============ Typeahead =========
+=========================================
+*/
+.search-suggest-results{
+	padding: 2px !important;
+	/* width: 270px; */
+	max-height: 170px;
+	z-index: 99999;
+	position: absolute;
+	float: left;
+	border: 1px solid #ddd;
+	left: 15px;
+	/* top: 34px; */
+	background: #fff;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	border-radius: 3px;
+	display: none;
+}
+.search-suggest-results ul {
+	padding: 0; margin: 0;
+}
+.search-suggest-results ul li{
+	list-style: none;
+	padding: 5px 10px;
+}
+.search-suggest-results ul li:hover{
+	background: #222;
+	color: #fff;
+	cursor: pointer;
+}
+
+
 
 /*
 =========================================

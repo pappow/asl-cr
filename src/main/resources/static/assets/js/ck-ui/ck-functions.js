@@ -336,11 +336,12 @@ function submitReportForm(customurl){
 			var blob = new Blob([arrrayBuffer], {type: "application/pdf"});
 			var link = window.URL.createObjectURL(blob);
 			window.open(link,'', 'height=650,width=840');
+			loadingMask2.hide();
 		}, 
 		error : function(jqXHR, status, errorThrown){
+			loadingMask2.hide();
 			showMessage(status, "Something went wrong .... ");
-		},
-		complete: loadingMask2.hide()
+		}
 	});
 }
 
@@ -395,11 +396,12 @@ function submitModalForm(customurl){
 			} else {
 				showMessage(data.status.toLowerCase(), data.message);
 			}
+			loadingMask2.hide()
 		}, 
 		error : function(jqXHR, status, errorThrown){
 			showMessage(status, "Something went wrong .... ");
-		},
-		complete: loadingMask2.hide()
+			loadingMask2.hide()
+		}
 	});
 }
 
@@ -429,11 +431,12 @@ function doSectionReloadWithNewData(rdata){
 				parentElement.append(data);
 				bindTableButtonsEvent($('#' + rdata.reloadelementid));
 			}
+			loadingMask2.hide()
 		}, 
 		error : function(jqXHR, status, errorThrown){
 			showMessage(status, "Something went wrong .... ");
-		},
-		complete: loadingMask2.hide()
+			loadingMask2.hide()
+		}
 	});
 }
 

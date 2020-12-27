@@ -26,7 +26,7 @@ public class ReportParamMap {
 	public static final Map<String, String> DSR = new HashMap<>();
 
 	static {
-		SRS.put("status", "status");
-		SRS.put("param0", "zid");
+		SRS.put("param1", "zid");
+		SRS.put("param2", "status");
 	}
 }

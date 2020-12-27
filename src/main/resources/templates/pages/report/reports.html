@@ -14,27 +14,38 @@
 	<div th:switch="${field.fieldType + ''}">
 		<!-- HIDDEN -->
 		<div th:case="'HIDDEN'">
-			<input type="hidden" class="form-control" th:id="${field.id}" th:name="${field.name}" th:value="${field.inputValue}">
+			<input 	type="hidden" 
+					class="form-control" 
+					th:id="${field.fieldId}" 
+					th:name="${field.fieldName}" 
+					th:value="${field.defaultInputValue}"/>
 		</div>
 
 		<!-- INPUT -->
 		<div th:case="'INPUT'">
-			<label class="control-label col-sm-4" th:for="${field.id}" th:text="${field.prompt}">List code: </label>
+			<label class="control-label col-sm-4" th:for="${field.fieldId}" th:text="${field.prompt}">List code: </label>
 			<div class="col-sm-8">
-				<input type="text" class="form-control" th:id="${field.id}" th:name="${field.name}" th:value="${field.inputValue}" th:required="${field.required}"/>
+				<input 	type="text" 
+						class="form-control" 
+						th:id="${field.fieldId}" 
+						th:name="${field.fieldName}" 
+						th:value="${field.defaultInputValue}" 
+						th:required="${field.required}"
+						th:disabled="${field.disabled}"/>
 			</div>
 		</div>
 
 		<!-- DATE FIELD -->
 		<div th:case="'DATE'">
-			<label class="control-label col-sm-4" th:for="${field.id}" th:text="${field.prompt}">Prompt : </label>
-			<div class="input-group date col-sm-4 datepicker">
+			<label class="control-label col-sm-4" th:for="${field.fieldId}" th:text="${field.prompt}">Prompt : </label>
+			<div class="input-group date col-md-6 datepicker">
 				<input 	type="text" 
 						class="form-control" 
-						th:id="${field.id}" 
-						th:name="${field.name}" 
+						th:id="${field.fieldId}" 
+						th:name="${field.fieldName}" 
+						th:value="${field.defaultDateValue == null ? #dates.format(#dates.createNow(), df) : #dates.format(field.defaultDateValue, df)}"
 						th:required="${field.required}"
-						th:value="${field.dateValue == null ? #dates.format(#dates.createNow(), df) : #dates.format(field.dateValue, df)}">
+						th:disabled="${field.disabled}"/>
 				<div class="input-group-addon">
 					<span class="glyphicon glyphicon-th"></span>
 				</div>
@@ -43,12 +54,42 @@
 
 		<!-- DROPDOWN -->
 		<div th:case="'DROPDOWN'">
-			<label class="control-label col-sm-4" th:for="${field.id}" th:text="${field.prompt}">Dropdown : </label>
+			<label class="control-label col-sm-4" th:for="${field.fieldId}" th:text="${field.prompt}">Dropdown : </label>
 			<div class="col-sm-8">
-				<select th:id="${field.id}" th:name="${field.name}" class="form-control" th:required="${field.required}">
-					<option th:each="d : ${field.dropdownValues}" th:value="${d.value}" th:text="${d.prompt}">Value</option>
+				<select class="form-control"
+						th:id="${field.fieldId}" 
+						th:name="${field.fieldName}" 
+						th:required="${field.required}"
+						th:disabled="${field.disabled}">
+					<option th:each="o : ${field.options}" 
+							th:value="${o.value}" 
+							th:text="${o.prompt}"
+							th:selected="${o.value eq field.selectedOption}">Value</option>
 				</select>
 			</div>
+		</div>
+
+		<!-- SEARCH -->
+		<div th:case="'SEARCH'">
+			<label class="control-label col-sm-4" th:for="${field.fieldId}" th:text="${field.prompt}">Dropdown : </label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control searchsuggest" placeholder="Search..." th:attr="search-url=${field.searchUrl}">
+				<input type="hidden" id="search-id" value=""/>
+				<input type="hidden" id="search-des" value=""/>
+				<!-- <div class="search-suggest-results col-sm-6">
+					<ul>
+						<li>Item 1</li>
+						<li>Item 2</li>
+						<li>Item 3</li>
+						<li>Item 4</li>
+						<li>Item 5</li>
+						<li>Item 6</li>
+						<li>Item 7</li>
+						<li>Item 8</li>
+					</ul>
+				</div> -->
+			</div>
+			
 		</div>
 	</div>
 </div>
