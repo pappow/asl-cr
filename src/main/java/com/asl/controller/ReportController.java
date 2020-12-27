@@ -3,6 +3,7 @@ package com.asl.controller;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,11 +44,9 @@ public class ReportController extends AbstractController {
 	}
 
 	@PostMapping("/print")
-	public ResponseEntity<byte[]> print(RequestParameters params, HttpServletRequest request, HttpServletResponse response) throws IOException, NoSuchMethodException, SecurityException {
-		
+	public ResponseEntity<String> print(RequestParameters params, HttpServletRequest request, HttpServletResponse response) throws IOException, NoSuchMethodException, SecurityException {
 		ReportMenu rm = ReportMenu.valueOf(params.getReportCode().toUpperCase());
-		
-		
+
 		String message = "";
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(new MediaType("text", "html"));
@@ -65,12 +64,8 @@ public class ReportController extends AbstractController {
 			String method = RequestParameters.invokeGetter(params, reportParamFieldName);
 			reportParams.put(cristalReportParamName, method);
 		}
-
-		
-//		reportParams.put("zid", "900010");
-//		reportParams.put("category", "");
-//		reportParams.put("item", "");
-//		reportParams.put("status", "1");
+		reportParams.put("category", "");
+		reportParams.put("item", "");
 
 		byte[] byt = null;
 		BufferedInputStream in = printingService.getPDFBytes(reportName, reportTitle, attachment, reportParams);
@@ -85,9 +80,11 @@ public class ReportController extends AbstractController {
 			}
 
 			byt = os.toByteArray();
-			headers.add("content-disposition", "inline; filename=hello.pdf");
+			headers.add("content-disposition", "attachment; filename=hello.pdf");
 			headers.setContentType(new MediaType("application", "pdf"));
 		}
-		return new ResponseEntity<>(byt, headers, HttpStatus.OK);
+
+		String encodedString = Base64.getEncoder().encodeToString(byt);
+		return new ResponseEntity<>(encodedString, headers, HttpStatus.OK);
 	}
 }

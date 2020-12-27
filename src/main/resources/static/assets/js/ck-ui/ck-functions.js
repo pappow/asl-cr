@@ -328,21 +328,14 @@ function submitReportForm(customurl){
 
 	$.ajax({
 		url : submitUrl,
-		type :submitType,
+		type : submitType,
 		data : formData,
 		beforeSend : loadingMask2.show(),
 		success : function(data) {
-			console.log({data});
-//			if(data.status == 'SUCCESS'){
-//				showMessage(data.status.toLowerCase(), data.message);
-//				if(data.redirecturl){
-//					setTimeout(() => {
-//						window.location.replace(getBasepath() + data.redirecturl);
-//					}, 1500);
-//				}
-//			} else {
-//				showMessage(data.status.toLowerCase(), data.message);
-//			}
+			var arrrayBuffer = base64ToArrayBuffer(data);
+			var blob = new Blob([arrrayBuffer], {type: "application/pdf"});
+			var link = window.URL.createObjectURL(blob);
+			window.open(link,'', 'height=650,width=840');
 		}, 
 		error : function(jqXHR, status, errorThrown){
 			showMessage(status, "Something went wrong .... ");
@@ -351,7 +344,21 @@ function submitReportForm(customurl){
 	});
 }
 
-
+/**
+ * Convert Base64 string to array buffer
+ * @param base64
+ * @returns
+ */
+function base64ToArrayBuffer(base64) {
+	var binaryString = window.atob(base64);
+	var binaryLen = binaryString.length;
+	var bytes = new Uint8Array(binaryLen);
+	for (var i = 0; i < binaryLen; i++) {
+		var ascii = binaryString.charCodeAt(i);
+		bytes[i] = ascii;
+	}
+	return bytes;
+}
 
 /**
  * Submit modal main form
