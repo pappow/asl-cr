@@ -13,7 +13,7 @@ import com.crystaldecisions.sdk.occa.report.lib.ReportSDKException;
  */
 public interface PrintingService {
 
-	public BufferedInputStream getPDFBytes(String reportName, String reportTitle, boolean attachment, Map<String, String> reportParams);
+	public BufferedInputStream getPDFBytes(String reportName, String reportTitle, boolean attachment, Map<String, Object> reportParams);
 
 	public void changeDataSource(ReportClientDocument clientDoc, String reportName, String tableName, DBConfig dbConfig) throws ReportSDKException;
 	public void logonDataSource(ReportClientDocument clientDoc, DBConfig dbConfig) throws ReportSDKException;

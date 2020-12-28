@@ -3,6 +3,8 @@ package com.asl.controller;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,14 +37,18 @@ public class PrintingController {
 		headers.add("X-Content-Type-Options", "nosniff");
 
 		// Parameters to send
-		String reportName = "D:/ASL/cr-reports/caitemlist.rpt";
+		String reportName = "D:/ASL/cr-reports/opsumm.rpt";
 		String reportTitle = "Test Report";
 		boolean attachment = true;
-		Map<String, String> reportParams = new HashMap<>();
+		SimpleDateFormat ssd = new SimpleDateFormat("E, dd-MMM-yyyy");
+		Map<String, Object> reportParams = new HashMap<>();
+		System.out.println(new Date());
 		reportParams.put("zid", "900010");
-		reportParams.put("category", "");
-		reportParams.put("item", "");
-		reportParams.put("status", "1");
+		reportParams.put("fdate", new Date());
+		reportParams.put("tdate", new Date());
+		reportParams.put("terminal", "1");
+		reportParams.put("rpttype", "Summary");
+		reportParams.put("div", "1");
 
 		byte[] byt = null;
 		BufferedInputStream in = printingService.getPDFBytes(reportName, reportTitle, attachment, reportParams);

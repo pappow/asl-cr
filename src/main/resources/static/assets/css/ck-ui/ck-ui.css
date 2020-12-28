@@ -195,21 +195,19 @@ select.form-control[disabled] {
 
 /*
 =========================================
-============ Typeahead =========
+============ Search suggest =========
 =========================================
 */
 .search-suggest-results{
 	padding: 2px !important;
-	/* width: 270px; */
 	max-height: 170px;
 	z-index: 99999;
 	position: absolute;
 	float: left;
 	border: 1px solid #ddd;
 	left: 15px;
-	/* top: 34px; */
 	background: #fff;
-	overflow-y: scroll;
+	overflow-y: auto;
 	overflow-x: hidden;
 	border-radius: 3px;
 	display: none;
@@ -225,6 +223,20 @@ select.form-control[disabled] {
 	background: #222;
 	color: #fff;
 	cursor: pointer;
+}
+
+.search-suggest-results::-webkit-scrollbar-track {
+	border: 1px solid black;
+	background-color: #F5F5F5;
+}
+
+.search-suggest-results::-webkit-scrollbar {
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+.search-suggest-results::-webkit-scrollbar-thumb {
+	background-color: #000000;	
 }
 
 

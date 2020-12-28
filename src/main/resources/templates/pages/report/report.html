@@ -27,9 +27,17 @@
 									<div class="nav navbar-nav">
 										<li><a th:href="@{/}">Dashboard</a></li>
 										<li class="dropdown active">
-											<a class="dropdown-toggle" data-toggle="dropdown" href="#">Report <span class="caret"></span></a>
+											<a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports<span class="caret"></span></a>
 											<ul class="dropdown-menu">
-												<li th:each="menu: ${T(com.asl.enums.ReportMenu).values()}">
+												<li th:each="menu: ${T(com.asl.enums.ReportMenu).values()}" th:if="${menu.group eq 1}">
+													<a th:href="@{/report/} + ${menu.code}"><span th:text="${menu.description}"></span></a>
+												</li>
+											</ul>
+										</li>
+										<li class="dropdown active">
+											<a class="dropdown-toggle" data-toggle="dropdown" href="#">Report<span class="caret"></span></a>
+											<ul class="dropdown-menu">
+												<li th:each="menu: ${T(com.asl.enums.ReportMenu).values()}" th:if="${menu.group eq 2}">
 													<a th:href="@{/report/} + ${menu.code}"><span th:text="${menu.description}"></span></a>
 												</li>
 											</ul>
@@ -37,7 +45,7 @@
 									</div>
 									<ul class="nav navbar-nav navbar-right" th:include="ckbigmenu :: dashboard-menu"></ul>
 									<ul class="nav navbar-nav navbar-right navbar-action-buttons">
-										<li class="confirm-rpt-btn viewmode"><a href="#">View</a></li>
+										<li class="confirm-rpt-btn viewmode active"><a href="#">Generate</a></li>
 									</ul>
 								</div>
 							</div>
@@ -61,7 +69,7 @@
 
 								<form id="reportform" class="form-horizontal" th:action="@{/report/print}" method="POST">
 									<input type="hidden" name="reportCode" th:value="${reportCode}"/>
-									<div th:include="pages/report/reports :: ${reportCode}" th:with="df=${'E, dd-MMM-yyyy'}"></div>
+									<div th:include="pages/report/reports :: report-fields" th:with="df=${'E, dd-MMM-yyyy'}"></div>
 								</form>
 
 							</div>

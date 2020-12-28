@@ -48,7 +48,7 @@ public class PrintingServiceImpl implements PrintingService {
 	@Autowired private Environment env;
 
 	@Override
-	public BufferedInputStream getPDFBytes(String reportName, String reportTitle, boolean attachment, Map<String, String> reportParams) {
+	public BufferedInputStream getPDFBytes(String reportName, String reportTitle, boolean attachment, Map<String, Object> reportParams) {
 		ReportClientDocument clientDoc = new ReportClientDocument();
 		try {
 			clientDoc.setReportAppServer(ReportClientDocument.inprocConnectionString);
@@ -63,7 +63,7 @@ public class PrintingServiceImpl implements PrintingService {
 			changeDataSource(clientDoc, null, null, dbConfig);
 			logonDataSource(clientDoc, dbConfig);
 
-			for(Map.Entry<String, String> param : reportParams.entrySet()) {
+			for(Map.Entry<String, Object> param : reportParams.entrySet()) {
 				ZabCRViewer.addDiscreteParameterValue(clientDoc, "", param.getKey(), param.getValue());
 			}
 

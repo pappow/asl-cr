@@ -1,5 +1,5 @@
 <!-- Report Form -->
-<div th:fragment="srs" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<div th:fragment="report-fields" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	<div th:each="field : ${fieldsList}" th:if="${field.fieldType.name() eq 'HIDDEN'}" th:switch="${field.fieldType + ''}">
 		<div th:replace="pages/report/reports :: display-argument(${field})"></div>
 	</div>
@@ -73,23 +73,14 @@
 		<div th:case="'SEARCH'">
 			<label class="control-label col-sm-4" th:for="${field.fieldId}" th:text="${field.prompt}">Dropdown : </label>
 			<div class="col-sm-6">
-				<input type="text" class="form-control searchsuggest" placeholder="Search..." th:attr="search-url=${field.searchUrl}">
-				<input type="hidden" id="search-id" value=""/>
+				<input 	type="text" 
+						class="form-control searchsuggest" 
+						placeholder="Search..." 
+						th:id="${field.fieldId}"
+						th:attr="search-url=${field.searchUrl}">
+				<input type="hidden" id="search-val" th:name="${field.fieldName}" value=""/>
 				<input type="hidden" id="search-des" value=""/>
-				<!-- <div class="search-suggest-results col-sm-6">
-					<ul>
-						<li>Item 1</li>
-						<li>Item 2</li>
-						<li>Item 3</li>
-						<li>Item 4</li>
-						<li>Item 5</li>
-						<li>Item 6</li>
-						<li>Item 7</li>
-						<li>Item 8</li>
-					</ul>
-				</div> -->
 			</div>
-			
 		</div>
 	</div>
 </div>

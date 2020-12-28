@@ -15,14 +15,14 @@ import com.ibm.icu.util.Calendar;
  * @author Zubayer Ahamed
  * @since Dec 27, 2020
  */
-@Service("srsService")
-public class SRSReportFieldServiceImpl extends AbstractReportService {
+@Service("drService")
+public class DRReportFieldServiceImpl extends AbstractReportService {
 
 	public List<FormFieldBuilder> getReportFields() {
-		return generateSRS();
+		return generateDR();
 	}
 
-	private List<FormFieldBuilder> generateSRS() {
+	private List<FormFieldBuilder> generateDR() {
 		List<FormFieldBuilder> fieldsList = new ArrayList<>();
 
 		// zid
@@ -58,8 +58,6 @@ public class SRSReportFieldServiceImpl extends AbstractReportService {
 		List<DropdownOption> reportViewOptions = new ArrayList<>();
 		reportViewOptions.add(new DropdownOption("PDF", "PDF"));
 		fieldsList.add(FormFieldBuilder.generateDropdownField(7, "Report view", reportViewOptions, "PDF", true));
-
-		fieldsList.add(FormFieldBuilder.generateSearchField(9, "Search", "/search/countries", "", true));
 
 		fieldsList.sort(Comparator.comparing(FormFieldBuilder::getSeqn));
 		return fieldsList;

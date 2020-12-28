@@ -15,14 +15,14 @@ import com.ibm.icu.util.Calendar;
  * @author Zubayer Ahamed
  * @since Dec 27, 2020
  */
-@Service("srsService")
-public class SRSReportFieldServiceImpl extends AbstractReportService {
+@Service("srdService")
+public class SRDReportFieldServiceImpl extends AbstractReportService {
 
 	public List<FormFieldBuilder> getReportFields() {
-		return generateSRS();
+		return generateSRD();
 	}
 
-	private List<FormFieldBuilder> generateSRS() {
+	private List<FormFieldBuilder> generateSRD() {
 		List<FormFieldBuilder> fieldsList = new ArrayList<>();
 
 		// zid
@@ -50,16 +50,9 @@ public class SRSReportFieldServiceImpl extends AbstractReportService {
 		postOptions.add(new DropdownOption("04", "04"));
 		fieldsList.add(FormFieldBuilder.generateDropdownField(5, "Pos terminal", postOptions, null, false));
 
-		List<DropdownOption> reportTypeOptions = new ArrayList<>();
-		reportTypeOptions.add(new DropdownOption("Synopsis", "Synopsis"));
-		reportTypeOptions.add(new DropdownOption("Summary", "Summary"));
-		fieldsList.add(FormFieldBuilder.generateDropdownField(6, "Report type", reportTypeOptions, "Summary", true));
-
 		List<DropdownOption> reportViewOptions = new ArrayList<>();
 		reportViewOptions.add(new DropdownOption("PDF", "PDF"));
-		fieldsList.add(FormFieldBuilder.generateDropdownField(7, "Report view", reportViewOptions, "PDF", true));
-
-		fieldsList.add(FormFieldBuilder.generateSearchField(9, "Search", "/search/countries", "", true));
+		fieldsList.add(FormFieldBuilder.generateDropdownField(6, "Report view", reportViewOptions, "PDF", true));
 
 		fieldsList.sort(Comparator.comparing(FormFieldBuilder::getSeqn));
 		return fieldsList;
