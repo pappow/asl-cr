@@ -26,7 +26,7 @@ public class SRSReportFieldServiceImpl extends AbstractReportService {
 		List<FormFieldBuilder> fieldsList = new ArrayList<>();
 
 		// zid
-		fieldsList.add(FormFieldBuilder.generateHiddenField(1, zid));
+		fieldsList.add(FormFieldBuilder.generateHiddenField(1, sessionManager.getBusinessId()));
 
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.DATE, -5);
@@ -58,8 +58,6 @@ public class SRSReportFieldServiceImpl extends AbstractReportService {
 		List<DropdownOption> reportViewOptions = new ArrayList<>();
 		reportViewOptions.add(new DropdownOption("PDF", "PDF"));
 		fieldsList.add(FormFieldBuilder.generateDropdownField(7, "Report view", reportViewOptions, "PDF", true));
-
-		fieldsList.add(FormFieldBuilder.generateSearchField(9, "Search", "/search/countries", "", true));
 
 		fieldsList.sort(Comparator.comparing(FormFieldBuilder::getSeqn));
 		return fieldsList;

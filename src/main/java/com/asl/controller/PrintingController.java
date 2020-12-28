@@ -3,7 +3,6 @@ package com.asl.controller;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -40,7 +39,6 @@ public class PrintingController {
 		String reportName = "D:/ASL/cr-reports/opsumm.rpt";
 		String reportTitle = "Test Report";
 		boolean attachment = true;
-		SimpleDateFormat ssd = new SimpleDateFormat("E, dd-MMM-yyyy");
 		Map<String, Object> reportParams = new HashMap<>();
 		System.out.println(new Date());
 		reportParams.put("zid", "900010");

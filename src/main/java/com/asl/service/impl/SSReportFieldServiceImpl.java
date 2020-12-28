@@ -24,7 +24,7 @@ public class SSReportFieldServiceImpl extends AbstractReportService {
 		List<FormFieldBuilder> fieldsList = new ArrayList<>();
 
 		// zid
-		fieldsList.add(FormFieldBuilder.generateHiddenField(1, zid));
+		fieldsList.add(FormFieldBuilder.generateHiddenField(1, sessionManager.getBusinessId()));
 
 		List<DropdownOption> reportViewOptions = new ArrayList<>();
 		reportViewOptions.add(new DropdownOption("PDF", "PDF"));

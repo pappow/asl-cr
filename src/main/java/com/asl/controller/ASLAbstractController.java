@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.asl.config.AppConfig;
 import com.asl.enums.ReportMenu;
+import com.asl.service.ASLSessionManager;
 import com.asl.service.ReportFieldService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +27,7 @@ public class ASLAbstractController {
 
 	@Autowired protected ApplicationContext appContext;
 	@Autowired protected AppConfig appConfig;
+	@Autowired protected ASLSessionManager sessionManager;
 
 	@ModelAttribute("brandName")
 	protected String brandName() {

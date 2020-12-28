@@ -15,13 +15,15 @@ public class ReportParamMap {
 	public static final Map<String, String> SRD = new HashMap<>();
 	public static final Map<String, String> CBR = new HashMap<>();
 	public static final Map<String, String> CSR = new HashMap<>();
+	public static final Map<String, String> IWSS = new HashMap<>();
+	public static final Map<String, String> SMWSS = new HashMap<>();
 	public static final Map<String, String> IWSST = new HashMap<>();
 	public static final Map<String, String> IL = new HashMap<>();
 	public static final Map<String, String> IPH = new HashMap<>();
 	public static final Map<String, String> CRS = new HashMap<>();
 	public static final Map<String, String> CRD = new HashMap<>();
 	public static final Map<String, String> CCCD = new HashMap<>();
-	public static final Map<String, String> SALES = new HashMap<>();
+	public static final Map<String, String> SET = new HashMap<>();
 	public static final Map<String, String> VR = new HashMap<>();
 	public static final Map<String, String> SS = new HashMap<>();
 	public static final Map<String, String> DR = new HashMap<>();

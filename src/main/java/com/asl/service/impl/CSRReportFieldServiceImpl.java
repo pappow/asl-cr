@@ -15,14 +15,14 @@ import com.ibm.icu.util.Calendar;
  * @author Zubayer Ahamed
  * @since Dec 27, 2020
  */
-@Service("srdService")
-public class SRDReportFieldServiceImpl extends AbstractReportService {
+@Service("csrService")
+public class CSRReportFieldServiceImpl extends AbstractReportService {
 
 	public List<FormFieldBuilder> getReportFields() {
-		return generateSRD();
+		return generateCSR();
 	}
 
-	private List<FormFieldBuilder> generateSRD() {
+	private List<FormFieldBuilder> generateCSR() {
 		List<FormFieldBuilder> fieldsList = new ArrayList<>();
 
 		// zid
@@ -44,15 +44,27 @@ public class SRDReportFieldServiceImpl extends AbstractReportService {
 
 		List<DropdownOption> postOptions = new ArrayList<>();
 		postOptions.add(new DropdownOption("", "Select"));
-		postOptions.add(new DropdownOption("01", "01"));
-		postOptions.add(new DropdownOption("02", "02"));
-		postOptions.add(new DropdownOption("03", "03"));
-		postOptions.add(new DropdownOption("04", "04"));
-		fieldsList.add(FormFieldBuilder.generateDropdownField(5, "Pos terminal", postOptions, null, false));
+		postOptions.add(new DropdownOption("Add On's", "Add On's"));
+		postOptions.add(new DropdownOption("Appetigers", "Appetigers"));
+		postOptions.add(new DropdownOption("Beef Burgers", "Beef Burgers"));
+		postOptions.add(new DropdownOption("Chicken Burgers", "Chicken Burgers"));
+		postOptions.add(new DropdownOption("Chilled Coffee", "Chilled Coffee"));
+		postOptions.add(new DropdownOption("Cold Beverages", "Cold Beverages"));
+		postOptions.add(new DropdownOption("Hot Coffee", "Hot Coffee"));
+		postOptions.add(new DropdownOption("Pasta", "Pasta"));
+		postOptions.add(new DropdownOption("Set Meals", "Set Meals"));
+		fieldsList.add(FormFieldBuilder.generateDropdownField(5, "Category", postOptions, null, false));
+
+		fieldsList.add(FormFieldBuilder.generateSearchField(6, "Item", "/search/item/itemcode", "", true));
+
+		List<DropdownOption> reportTypeOptions = new ArrayList<>();
+		reportTypeOptions.add(new DropdownOption("Synopsis", "Synopsis"));
+		reportTypeOptions.add(new DropdownOption("Summary", "Summary"));
+		fieldsList.add(FormFieldBuilder.generateDropdownField(7, "Report type", reportTypeOptions, "Summary", true));
 
 		List<DropdownOption> reportViewOptions = new ArrayList<>();
 		reportViewOptions.add(new DropdownOption("PDF", "PDF"));
-		fieldsList.add(FormFieldBuilder.generateDropdownField(6, "Report view", reportViewOptions, "PDF", true));
+		fieldsList.add(FormFieldBuilder.generateDropdownField(8, "Report view", reportViewOptions, "PDF", true));
 
 		fieldsList.sort(Comparator.comparing(FormFieldBuilder::getSeqn));
 		return fieldsList;

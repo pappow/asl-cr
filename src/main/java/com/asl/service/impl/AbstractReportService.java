@@ -1,8 +1,9 @@
 package com.asl.service.impl;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.asl.service.ASLSessionManager;
 import com.asl.service.ReportFieldService;
 
 /**
@@ -12,6 +13,5 @@ import com.asl.service.ReportFieldService;
 @Component
 public abstract class AbstractReportService implements ReportFieldService {
 
-	@Value("${zid}")
-	protected String zid;
+	@Autowired protected ASLSessionManager sessionManager;
 }

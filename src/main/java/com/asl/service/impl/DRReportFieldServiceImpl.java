@@ -26,7 +26,7 @@ public class DRReportFieldServiceImpl extends AbstractReportService {
 		List<FormFieldBuilder> fieldsList = new ArrayList<>();
 
 		// zid
-		fieldsList.add(FormFieldBuilder.generateHiddenField(1, zid));
+		fieldsList.add(FormFieldBuilder.generateHiddenField(1, sessionManager.getBusinessId()));
 
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.DATE, -5);
