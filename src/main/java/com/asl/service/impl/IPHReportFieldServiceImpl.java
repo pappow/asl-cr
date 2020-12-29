@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.asl.model.DropdownOption;
 import com.asl.model.FormFieldBuilder;
-import com.ibm.icu.util.Calendar;
 
 /**
  * @author Zubayer Ahamed
@@ -28,9 +27,7 @@ public class IPHReportFieldServiceImpl extends AbstractReportService {
 		// zid
 		fieldsList.add(FormFieldBuilder.generateHiddenField(1, sessionManager.getBusinessId()));
 
-		Calendar cal = Calendar.getInstance();
-		cal.add(Calendar.DATE, -5);
-		fieldsList.add(FormFieldBuilder.generateDateField(2, "From date", cal.getTime(), true));
+		fieldsList.add(FormFieldBuilder.generateDateField(2, "From date", new Date(), true));
 
 		fieldsList.add(FormFieldBuilder.generateDateField(3, "To date", new Date(), true));
 

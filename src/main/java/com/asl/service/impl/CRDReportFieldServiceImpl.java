@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.asl.model.DropdownOption;
 import com.asl.model.FormFieldBuilder;
-import com.ibm.icu.util.Calendar;
 
 /**
  * @author Zubayer Ahamed
@@ -46,9 +45,7 @@ public class CRDReportFieldServiceImpl extends AbstractReportService {
 		toTerminalOptions.add(new DropdownOption("04", "04"));
 		fieldsList.add(FormFieldBuilder.generateDropdownField(4, "To terminal", toTerminalOptions, null, false));
 
-		Calendar cal = Calendar.getInstance();
-		cal.add(Calendar.DATE, -5);
-		fieldsList.add(FormFieldBuilder.generateDateField(5, "From date", cal.getTime(), true));
+		fieldsList.add(FormFieldBuilder.generateDateField(5, "From date", new Date(), true));
 
 		fieldsList.add(FormFieldBuilder.generateDateField(6, "To date", new Date(), true));
 

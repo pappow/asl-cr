@@ -25,8 +25,8 @@ spring:
     cache: false
   datasource: 
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-#    url: jdbc:sqlserver://localhost;databaseName=JUNKDB
-    url: jdbc:sqlserver://localhost;databaseName=EASYDB
+    url: jdbc:sqlserver://localhost;databaseName=JUNKDB
+#    url: jdbc:sqlserver://localhost;databaseName=EASYDB
 #    url: jdbc:sqlserver://178.238.224.154;databaseName=ZABDB
     username: sa
     password: zubayer%123
