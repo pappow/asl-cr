@@ -62,7 +62,7 @@ $(document).ready(function(){
 		var searchContainer = $(parent).find('.search-suggest-results');
 		$(searchContainer).css({
 			'display':'block',
-			'min-width' : $(uielement).width() + 20,
+			'min-width' : $(uielement).width() + 25,
 			'top' : $(uielement).height("px")
 		});
 

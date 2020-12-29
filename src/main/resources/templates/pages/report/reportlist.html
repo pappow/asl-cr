@@ -53,9 +53,9 @@
 										<td colspan="2">Reports</td>
 									</tr>
 									<tr th:each="menu: ${T(com.asl.enums.ReportMenu).values()}" th:if="${menu.group eq 1}">
-										<td><a th:href="@{/report/} + ${menu.code}" th:text="${menu.description}">Report Name</a></td>
+										<td><a th:href="@{/report/} + ${menu.name}" th:text="${menu.description}">Report Name</a></td>
 										<td>
-											<a th:href="@{/report/} + ${menu.code}" class="btn btn-sm btn-default pull-right"> <i class="fas fa-chevron-right"></i></a>
+											<a th:href="@{/report/} + ${menu.name}" class="btn btn-sm btn-default pull-right"> <i class="fas fa-chevron-right"></i></a>
 										</td>
 									</tr>
 
@@ -63,9 +63,9 @@
 										<td colspan="2">Report</td>
 									</tr>
 									<tr th:each="menu: ${T(com.asl.enums.ReportMenu).values()}" th:if="${menu.group eq 2}">
-										<td><a th:href="@{/report/} + ${menu.code}" th:text="${menu.description}">Report Name</a></td>
+										<td><a th:href="@{/report/} + ${menu.name}" th:text="${menu.description}">Report Name</a></td>
 										<td>
-											<a th:href="@{/report/} + ${menu.code}" class="btn btn-sm btn-default pull-right"> <i class="fas fa-chevron-right"></i></a>
+											<a th:href="@{/report/} + ${menu.name}" class="btn btn-sm btn-default pull-right"> <i class="fas fa-chevron-right"></i></a>
 										</td>
 									</tr>
 								</table>

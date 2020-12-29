@@ -51,11 +51,19 @@ public class ReportController extends ASLAbstractController {
 
 	@GetMapping("/{menuCode}")
 	public String loadReportPage(@PathVariable String menuCode, Model model) {
-		
-		
-		model.addAttribute("fieldsList", getReportFieldService(ReportMenu.valueOf(menuCode)).getReportFields());
-		model.addAttribute("reportCode", menuCode.toLowerCase());
-		model.addAttribute("reportName", ReportMenu.valueOf(menuCode).getDescription());
+		ReportMenu rm = null;
+		try {
+			rm = ReportMenu.valueOf(menuCode);
+		} catch (Exception e) {
+			log.error(ERROR, e.getMessage(), e);
+			return "redirect:/accessdenied";
+		}
+
+		model.addAttribute("fieldsList", getReportFieldService(rm).getReportFields());
+		model.addAttribute("menuGroup", rm.getGroup());
+		model.addAttribute("selectedReport", rm.name());
+		model.addAttribute("reportCode", rm.getCode().toLowerCase());
+		model.addAttribute("reportName", rm.getDescription());
 		return "pages/report/report";
 	}
 

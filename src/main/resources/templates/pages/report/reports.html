@@ -56,7 +56,7 @@
 		<div th:case="'DROPDOWN'">
 			<label class="control-label col-sm-4" th:for="${field.fieldId}" th:text="${field.prompt}">Dropdown : </label>
 			<div class="col-sm-8">
-				<select class="form-control"
+				<select class="form-control selectpicker"
 						th:id="${field.fieldId}" 
 						th:name="${field.fieldName}" 
 						th:required="${field.required}"
