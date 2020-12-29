@@ -26,7 +26,7 @@ public class ILReportFieldServiceImpl extends AbstractReportService {
 		// zid
 		fieldsList.add(FormFieldBuilder.generateHiddenField(1, sessionManager.getBusinessId()));
 
-		fieldsList.add(FormFieldBuilder.generateSearchField(2, "Item Code", "/search/item/itemcode", "", true));
+		fieldsList.add(FormFieldBuilder.generateSearchField(2, "Item Code", "search/item/itemcode", "", false));
 
 		List<DropdownOption> postOptions = new ArrayList<>();
 		postOptions.add(new DropdownOption("", "Select"));

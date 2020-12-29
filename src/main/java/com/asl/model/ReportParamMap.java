@@ -48,10 +48,66 @@ public class ReportParamMap {
 		CBR.put("param3", "tdate|" + ReportParamDataType.DATE.name());
 		CBR.put("param4", "terminal|" + ReportParamDataType.STRING.name());
 
+		CSR.put("param1", "zid|" + ReportParamDataType.INTEGER.name());
+		CSR.put("param2", "fdate|" + ReportParamDataType.DATE.name());
+		CSR.put("param3", "tdate|" + ReportParamDataType.DATE.name());
+		CSR.put("param4", "div|" + ReportParamDataType.STRING.name());
+		CSR.put("param5", "citem|" + ReportParamDataType.STRING.name());
+		CSR.put("param6", "item|" + ReportParamDataType.STRING.name());
+		CSR.put("param7", "reptype|" + ReportParamDataType.STRING.name());
+
+		IWSS.put("param1", "zid|" + ReportParamDataType.INTEGER.name());
+		IWSS.put("param2", "fdate|" + ReportParamDataType.DATE.name());
+		IWSS.put("param3", "tdate|" + ReportParamDataType.DATE.name());
+		IWSS.put("param4", "div|" + ReportParamDataType.STRING.name());
+		IWSS.put("param5", "item|" + ReportParamDataType.STRING.name());
+
+		SMWSS.put("param1", "zid|" + ReportParamDataType.INTEGER.name());
+		SMWSS.put("param2", "fdate|" + ReportParamDataType.DATE.name());
+		SMWSS.put("param3", "tdate|" + ReportParamDataType.DATE.name());
+		SMWSS.put("param4", "div|" + ReportParamDataType.STRING.name());
+		SMWSS.put("param5", "item|" + ReportParamDataType.STRING.name());
+
+		IWSST.put("param1", "zid|" + ReportParamDataType.INTEGER.name());
+		IWSST.put("param2", "fdate|" + ReportParamDataType.DATE.name());
+		IWSST.put("param3", "tdate|" + ReportParamDataType.DATE.name());
+		IWSST.put("param4", "div|" + ReportParamDataType.STRING.name());
+		IWSST.put("param5", "item|" + ReportParamDataType.STRING.name());
+
+		IL.put("param1", "zid|" + ReportParamDataType.INTEGER.name());
+		IL.put("param2", "item|" + ReportParamDataType.STRING.name());
+		IL.put("param3", "category|" + ReportParamDataType.STRING.name());
+		IL.put("param4", "status|" + ReportParamDataType.STRING.name());
+
+		IPH.put("param1", "zid|" + ReportParamDataType.INTEGER.name());
+		IPH.put("param2", "fdate|" + ReportParamDataType.DATE.name());
+		IPH.put("param3", "tdate|" + ReportParamDataType.DATE.name());
+		IPH.put("param4", "item|" + ReportParamDataType.STRING.name());
+
 		CRS.put("param1", "zid|" + ReportParamDataType.INTEGER.name());
 		CRS.put("param2", "fdate|" + ReportParamDataType.DATE.name());
 		CRS.put("param3", "tdate|" + ReportParamDataType.DATE.name());
 		CRS.put("param4", "terminal|" + ReportParamDataType.STRING.name());
+
+		CRD.put("param1", "zid|" + ReportParamDataType.INTEGER.name());
+		CRD.put("param2", "puser|" + ReportParamDataType.STRING.name());
+		CRD.put("param3", "pfterminal|" + ReportParamDataType.STRING.name());
+		CRD.put("param4", "ptterminal|" + ReportParamDataType.STRING.name());
+		CRD.put("param5", "fdate|" + ReportParamDataType.DATE.name());
+		CRD.put("param6", "fdate|" + ReportParamDataType.DATE.name());
+
+		SET.put("param1", "zid|" + ReportParamDataType.INTEGER.name());
+		SET.put("param2", "fdate|" + ReportParamDataType.DATE.name());
+		SET.put("param3", "tdate|" + ReportParamDataType.DATE.name());
+		SET.put("param4", "terminal|" + ReportParamDataType.STRING.name());
+		SET.put("param5", "pack|" + ReportParamDataType.STRING.name());
+		SET.put("param6", "item|" + ReportParamDataType.STRING.name());
+
+		VR.put("param1", "zid|" + ReportParamDataType.INTEGER.name());
+		VR.put("param2", "fdate|" + ReportParamDataType.DATE.name());
+		VR.put("param3", "tdate|" + ReportParamDataType.DATE.name());
+		VR.put("param4", "div|" + ReportParamDataType.STRING.name());
+		VR.put("param5", "shop|" + ReportParamDataType.STRING.name());
 
 		SS.put("param1", "zid|" + ReportParamDataType.INTEGER.name());
 

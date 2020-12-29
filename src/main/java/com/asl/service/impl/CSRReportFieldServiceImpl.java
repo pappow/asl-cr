@@ -55,7 +55,7 @@ public class CSRReportFieldServiceImpl extends AbstractReportService {
 		postOptions.add(new DropdownOption("Set Meals", "Set Meals"));
 		fieldsList.add(FormFieldBuilder.generateDropdownField(5, "Category", postOptions, null, false));
 
-		fieldsList.add(FormFieldBuilder.generateSearchField(6, "Item", "/search/item/itemcode", "", true));
+		fieldsList.add(FormFieldBuilder.generateSearchField(6, "Item", "search/item/itemcode", "", false));
 
 		List<DropdownOption> reportTypeOptions = new ArrayList<>();
 		reportTypeOptions.add(new DropdownOption("Synopsis", "Synopsis"));

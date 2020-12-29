@@ -25,11 +25,11 @@ spring:
     cache: false
   datasource: 
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-#    url: jdbc:sqlserver://localhost;databaseName=JUNKDB
-    url: jdbc:sqlserver://178.238.224.154;databaseName=ZABDB
+    url: jdbc:sqlserver://localhost;databaseName=JUNKDB
+#    url: jdbc:sqlserver://178.238.224.154;databaseName=ZABDB
     username: sa
-#    password: zubayer%123
-    password: sql@s3rv3r
+    password: zubayer%123
+#    password: sql@s3rv3r
     tomcat:
       max-wait: 20000
       max-active: 50
@@ -55,6 +55,8 @@ spring:
 default: 
   business: 
     id: 900010
+    username: jojon
+    password: jojo
 report: 
   template: 
     path: D:/ASL/cr-reports

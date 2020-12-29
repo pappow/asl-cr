@@ -42,7 +42,7 @@ public class IWSSTReportFieldServiceImpl extends AbstractReportService {
 		outletOptions.add(new DropdownOption("04", "04"));
 		fieldsList.add(FormFieldBuilder.generateDropdownField(4, "Outlet", outletOptions, null, false));
 
-		fieldsList.add(FormFieldBuilder.generateSearchField(5, "Item", "/search/item/itemcode", "", true));
+		fieldsList.add(FormFieldBuilder.generateSearchField(5, "Item", "search/item/itemcode", "", false));
 
 		List<DropdownOption> reportViewOptions = new ArrayList<>();
 		reportViewOptions.add(new DropdownOption("PDF", "PDF"));

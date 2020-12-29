@@ -13,13 +13,10 @@ $(document).ready(function(){
 		$.ajax({
 			url : getBasepath() + '/' + serachUrl + '/' + hint,
 			type : 'GET',
-			beforeSend : loadingMask2.show(),
 			success : function(data) {
-				loadingMask2.hide();
 				generateSearchResult(targetElement, data);
 			},
 			error : function(jqXHR, status, errorThrown){
-				loadingMask2.hide();
 				showMessage(status, "Something went wrong .... ");
 			}
 		});

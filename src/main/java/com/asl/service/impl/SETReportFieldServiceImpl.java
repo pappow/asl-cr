@@ -48,7 +48,7 @@ public class SETReportFieldServiceImpl extends AbstractReportService {
 		eatInOptions.add(new DropdownOption("Take Away", "Take Away"));
 		fieldsList.add(FormFieldBuilder.generateDropdownField(5, "Eat in?", eatInOptions, null, false));
 
-		fieldsList.add(FormFieldBuilder.generateSearchField(6, "Item", "/search/item/itemcode", "", true));
+		fieldsList.add(FormFieldBuilder.generateSearchField(6, "Item", "search/item/itemcode", "", false));
 
 		List<DropdownOption> reportViewOptions = new ArrayList<>();
 		reportViewOptions.add(new DropdownOption("PDF", "PDF"));

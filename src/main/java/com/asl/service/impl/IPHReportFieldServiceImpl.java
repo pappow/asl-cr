@@ -34,7 +34,7 @@ public class IPHReportFieldServiceImpl extends AbstractReportService {
 
 		fieldsList.add(FormFieldBuilder.generateDateField(3, "To date", new Date(), true));
 
-		fieldsList.add(FormFieldBuilder.generateSearchField(4, "Item", "/search/item/itemcode", "", true));
+		fieldsList.add(FormFieldBuilder.generateSearchField(4, "Item", "search/item/itemcode", "", false));
 
 		List<DropdownOption> reportViewOptions = new ArrayList<>();
 		reportViewOptions.add(new DropdownOption("PDF", "PDF"));

@@ -22,15 +22,21 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	@Value("${default.business.id}")
 	private String businessId;
 
+	@Value("${default.business.username}")
+	private String xusername;
+
+	@Value("${default.business.password}")
+	private String password;
+
 	@Autowired private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		if(StringUtils.isBlank(username) || !"admin".equalsIgnoreCase(username)) throw new UsernameNotFoundException("User not found with username : " + username);
+		if(StringUtils.isBlank(username) || !xusername.equalsIgnoreCase(username)) throw new UsernameNotFoundException("User not found with username : " + username);
 		User user = new User();
 		user.setUserId(Long.valueOf(1));
-		user.setUsername("admin");
-		user.setPassword(bCryptPasswordEncoder.encode("admin"));
+		user.setUsername(username);
+		user.setPassword(bCryptPasswordEncoder.encode(password));
 		user.setActive(true);
 		user.setBusinessId(businessId);
 		user.setRoles("SYSTEM_ADMIN");
