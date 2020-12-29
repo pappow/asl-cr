@@ -42,7 +42,8 @@ public class VRReportFieldServiceImpl extends AbstractReportService {
 		outletOptions.add(new DropdownOption("04", "04"));
 		fieldsList.add(FormFieldBuilder.generateDropdownField(4, "Outlet", outletOptions, null, false));
 
-		fieldsList.add(FormFieldBuilder.generateSearchField(5, "Shopno", "search/item/itemcode", "", false));
+//		fieldsList.add(FormFieldBuilder.generateSearchField(5, "Shopno", "search/item/itemcode", "", false));
+		fieldsList.add(FormFieldBuilder.generateHiddenField(5, ""));
 
 		List<DropdownOption> reportViewOptions = new ArrayList<>();
 		reportViewOptions.add(new DropdownOption("PDF", "PDF"));

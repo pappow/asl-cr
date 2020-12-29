@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Base64;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -104,11 +105,21 @@ public class ReportController extends ASLAbstractController {
 	}
 
 	private void convertObjectAndPutIntoMap(String paramName, ReportParamDataType paramType, Object method, Map<String, Object> reportParams) {
+		SimpleDateFormat sdf = new SimpleDateFormat("E, dd-MMM-yyyy");
 		switch (paramType) {
 			case DATE:
-				SimpleDateFormat sdf = new SimpleDateFormat("E, dd-MMM-yyyy");
 				try {
 					reportParams.put(paramName, sdf.parseObject((String) method));
+				} catch (ParseException e) {
+					log.error(ERROR, e.getMessage(), e);
+				}
+				break;
+			case DATESTRING:
+				SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+				try {
+					Date date = (Date) sdf.parseObject((String) method);
+					System.out.println(sdf2.format(date));
+					reportParams.put(paramName, sdf2.format(date));
 				} catch (ParseException e) {
 					log.error(ERROR, e.getMessage(), e);
 				}

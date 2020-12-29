@@ -6,5 +6,5 @@ package com.asl.enums;
  */
 public enum ReportParamDataType {
 
-	INTEGER, DATETIME, DATE, STRING
+	INTEGER, DATETIME, DATE, DATESTRING, STRING
 }

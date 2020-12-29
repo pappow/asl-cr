@@ -36,17 +36,17 @@ public class PrintingController {
 		headers.add("X-Content-Type-Options", "nosniff");
 
 		// Parameters to send
-		String reportName = "D:/ASL/cr-reports/opcollectdetail.rpt";
+		String reportName = "D:/ASL/cr-reports/opposcardcollall.rpt";
 		String reportTitle = "Test Report";
 		boolean attachment = true;
 		Map<String, Object> reportParams = new HashMap<>();
 		System.out.println(new Date());
-		reportParams.put("zid", "900010");
-		reportParams.put("puser", "");
-		reportParams.put("pfterminal", "");
-		reportParams.put("ptterminal", "");
-		reportParams.put("fdate", "01-01-2020");
-		reportParams.put("tdate", "29-12-2020");
+		reportParams.put("@zid", "900010");
+		reportParams.put("@puser", "");
+		reportParams.put("@pfterminal", "");
+		reportParams.put("@ptterminal", "");
+		reportParams.put("@fdate", "2019-06-01");
+		reportParams.put("@tdate", "2020-12-29");
 
 		byte[] byt = null;
 		BufferedInputStream in = printingService.getPDFBytes(reportName, reportTitle, attachment, reportParams);

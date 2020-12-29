@@ -27,7 +27,7 @@ public class CCCDReportFieldServiceImpl extends AbstractReportService {
 		// zid
 		fieldsList.add(FormFieldBuilder.generateHiddenField(1, sessionManager.getBusinessId()));
 
-		fieldsList.add(FormFieldBuilder.generateSearchField(2, "User", "search/item/itemcode", "", false));
+		fieldsList.add(FormFieldBuilder.generateSearchField(2, "User", "search/user", "", false));
 
 		List<DropdownOption> postTerminalOptions = new ArrayList<>();
 		postTerminalOptions.add(new DropdownOption("", "Select"));

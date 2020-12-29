@@ -89,12 +89,17 @@ public class ReportParamMap {
 		CRS.put("param3", "tdate|" + ReportParamDataType.DATE.name());
 		CRS.put("param4", "terminal|" + ReportParamDataType.STRING.name());
 
-		CRD.put("param1", "zid|" + ReportParamDataType.INTEGER.name());
-		CRD.put("param2", "puser|" + ReportParamDataType.STRING.name());
-		CRD.put("param3", "pfterminal|" + ReportParamDataType.STRING.name());
-		CRD.put("param4", "ptterminal|" + ReportParamDataType.STRING.name());
-		CRD.put("param5", "fdate|" + ReportParamDataType.DATE.name());
-		CRD.put("param6", "fdate|" + ReportParamDataType.DATE.name());
+		CRD.put("param1", "@zid|" + ReportParamDataType.INTEGER.name());
+		CRD.put("param2", "@puser|" + ReportParamDataType.STRING.name());
+		CRD.put("param3", "@pfterminal|" + ReportParamDataType.STRING.name());
+		CRD.put("param4", "@ptterminal|" + ReportParamDataType.STRING.name());
+		CRD.put("param5", "@fdate|" + ReportParamDataType.DATESTRING.name());
+		CRD.put("param6", "@tdate|" + ReportParamDataType.DATESTRING.name());
+
+		CCCD.put("param1", "@zid|" + ReportParamDataType.INTEGER.name());
+		CCCD.put("param2", "@user|" + ReportParamDataType.STRING.name());
+		CCCD.put("param3", "@terminal|" + ReportParamDataType.STRING.name());
+		CCCD.put("param4", "@date|" + ReportParamDataType.DATESTRING.name());
 
 		SET.put("param1", "zid|" + ReportParamDataType.INTEGER.name());
 		SET.put("param2", "fdate|" + ReportParamDataType.DATE.name());

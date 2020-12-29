@@ -40,5 +40,14 @@ public class SearchSuggestController extends ASLAbstractController {
 		return list;
 	}
 
+	@GetMapping("/user/{hint}")
+	public @ResponseBody List<SearchSuggestResult> getUsers(@PathVariable String hint) {
+
+		List<SearchSuggestResult> list = new ArrayList<>();
+		list.add(new SearchSuggestResult("jojon","Jojon"));
+
+		return list;
+	}
+
 	
 }

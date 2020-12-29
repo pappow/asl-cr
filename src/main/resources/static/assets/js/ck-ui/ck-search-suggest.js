@@ -17,7 +17,7 @@ $(document).ready(function(){
 				generateSearchResult(targetElement, data);
 			},
 			error : function(jqXHR, status, errorThrown){
-				showMessage(status, "Something went wrong .... ");
+				//showMessage(status, "Something went wrong .... ");
 			}
 		});
 
