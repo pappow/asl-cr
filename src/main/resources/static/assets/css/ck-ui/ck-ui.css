@@ -12,6 +12,34 @@
 	color: #fff;
 }
 
+.navbar-inverse {
+    background-color: #29af70;
+    border-color: #29af70;
+    color: #fff;
+}
+.navbar-inverse a{
+	color: #fff !important;
+}
+
+.navbar-inverse ul.dropdown-menu a{
+	color: #000 !important;
+}
+
+.navbar-inverse ul.dropdown-menu > li:hover a{
+	background-color: #29af70 !important;
+	color: #fff !important;
+}
+
+.navbar-inverse ul.dropdown-menu.ckbigmenu > li:hover a{
+	background-color: #f5f5f5 !important;
+	color: #000 !important;
+}
+
+.navbar-inverse li.active > a{
+	background-color: #17a261 !important;
+}
+
+
 
 /**
 ==== Editmode Buttons

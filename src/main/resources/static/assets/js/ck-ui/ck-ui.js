@@ -201,8 +201,8 @@ ck.ui.config.dateAndTimepicker = function(){
 }
 
 ck.ui.config.reportForm = function(){
-	if($('li.confirm-rpt-btn').length > 0){
-		$('li.confirm-rpt-btn').off('click').on('click', function(e){
+	if($('button.confirm-rpt-btn').length > 0){
+		$('button.confirm-rpt-btn').off('click').on('click', function(e){
 			e.preventDefault();
 			submitReportForm();
 		})
