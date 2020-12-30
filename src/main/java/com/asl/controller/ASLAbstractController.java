@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class ASLAbstractController {
 
-	protected static final String DEFAULT_SYSTEM_NAME = "ASL POS Report";
+	protected static final String DEFAULT_SYSTEM_NAME = "ASL <span class=\"title-divider\">POS Report</span>";
 	protected static final String PROLIFE_LIST_CODE = "XISPROFILE2020";
 	protected static final String PROLIFE_LINES_LIST_CODE = "PROFILE";
 	protected static final String ERROR = "Error is : {}, {}"; 

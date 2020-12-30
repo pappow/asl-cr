@@ -4,6 +4,14 @@
 =======================================================
 */
 
+.title-divider{
+	color: #0987c5;
+}
+h1.brand-name{
+	font-size: 50px;
+}
+
+
 /*
 === Nav bar
 */
@@ -43,8 +51,15 @@
     color: #fff;
    	background-color: #17a261 !important;
 }
-.select-items div:hover, .same-as-selected {
-  background-color: #17a261 !important;
+.navbar-inverse .navbar-toggle {
+    border-color: #17a261 !important;
+}
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus  {
+    border-color: #17a261 !important;
+    background-color: #17a261 !important;
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #17a261 !important;
 }
 
 
@@ -405,6 +420,7 @@ li.ckbigmenu-li a:hover .ckbigmenu-icon{
 
 
 
+
 /* === form validation releated css == */
 .has-feedback{
 	margin-bottom: 25px;
@@ -755,3 +771,30 @@ image using the content attribute.
 .nodisplay, li.nodisplay {
 	display: none;
 }
+
+
+
+
+
+
+
+
+/**
+* ================================
+* Mobile css
+* =============================
+*/
+
+@media only screen and (max-width: 600px) {
+	li.ckbigmenucontainer{
+		display: none !important;
+	}
+	h1.brand-name {
+		font-size: 45px;
+		text-align: center;
+	}
+}
+
+
+
+
