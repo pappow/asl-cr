@@ -28,14 +28,14 @@ public enum ReportMenu {
 	DR(1, "DR", "Discount Report", ReportParamMap.DR, "opsummdis.rpt"),
 	DSR(1, "DSR", "Delivery Service Report", ReportParamMap.DSR, "opsummsrv.rpt"),
 
-	SRSV(2, "SRS", "Sales Report (Summary)", ReportParamMap.SRS, "opsumV.rpt"),
-	SRDV(2, "SRD", "Sales Report (Detail)", ReportParamMap.SRD, "opdetailV.rpt"),
-	IWSSV(2, "IWSS", "Item Wise Sales Summary", ReportParamMap.IWSS, "opsalessumitemV.rpt"),
-	IPHV(2, "IPH","Item Price History", ReportParamMap.IPH, "caitemprice.rpt"),
-	CRSV(2, "CRS","Collection Report (Summary)", ReportParamMap.CRS, "opcollectsumV.rpt"),
-	CRDV(2, "CRD", "Collection Report (Detail)", ReportParamMap.CRD, "opcollectdetailV.rpt"),
-	CCCDV(2, "CCCD", "Credit Card Collection (Detail)", ReportParamMap.CCCD, "opposcardcollallV.rpt"),
-	SETV(2, "SET","Sales (Eat in / Take Away)", ReportParamMap.SET, "opsaleinawayV.rpt");
+	SRSV(2, "SRSV", "Sales Report (Summary)", ReportParamMap.SRSV, "opsumV.rpt"),
+	SRDV(2, "SRDV", "Sales Report (Detail)", ReportParamMap.SRDV, "opdetailV.rpt"),
+	IWSSV(2, "IWSSV", "Item Wise Sales Summary", ReportParamMap.IWSSV, "opsalessumitemV.rpt"),
+	IPHV(2, "IPHV","Item Price History", ReportParamMap.IPHV, "caitemprice.rpt"),
+	CRSV(2, "CRSV","Collection Report (Summary)", ReportParamMap.CRSV, "opcollectsumV.rpt"),
+	CRDV(2, "CRDV", "Collection Report (Detail)", ReportParamMap.CRDV, "opcollectdetailV.rpt"),
+	CCCDV(2, "CCCDV", "Credit Card Collection (Detail)", ReportParamMap.CCCDV, "opposcardcollallV.rpt"),
+	SETV(2, "SETV","Sales (Eat in / Take Away)", ReportParamMap.SETV, "opsaleinawayV.rpt");
 
 	private int group;
 	private String code;

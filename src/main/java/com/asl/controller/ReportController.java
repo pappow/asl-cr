@@ -62,7 +62,7 @@ public class ReportController extends ASLAbstractController {
 		model.addAttribute("fieldsList", getReportFieldService(rm).getReportFields());
 		model.addAttribute("menuGroup", rm.getGroup());
 		model.addAttribute("selectedReport", rm.name());
-		model.addAttribute("reportCode", rm.getCode().toLowerCase());
+		model.addAttribute("reportCode", rm.name().toLowerCase());
 		model.addAttribute("reportName", rm.getDescription());
 		return "pages/report/report";
 	}
@@ -126,7 +126,6 @@ public class ReportController extends ASLAbstractController {
 				SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
 				try {
 					Date date = (Date) sdf.parseObject((String) method);
-					System.out.println(sdf2.format(date));
 					reportParams.put(paramName, sdf2.format(date));
 				} catch (ParseException e) {
 					log.error(ERROR, e.getMessage(), e);
