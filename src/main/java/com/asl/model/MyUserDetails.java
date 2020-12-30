@@ -9,7 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.asl.entity.User;
+import com.asl.entity.Xusers;
 
 import lombok.ToString;
 
@@ -34,15 +34,14 @@ public class MyUserDetails implements UserDetails {
 	private String roles;
 	private List<GrantedAuthority> authorities;
 
-	public MyUserDetails(User user) {
-		this.username = user.getUsername();
-		this.password = user.getPassword();
-		this.emailAddress = user.getEmailAddress();
-		this.businessId = user.getBusinessId();
+	public MyUserDetails(Xusers user) {
+		this.username = user.getZemail();
+		this.password = user.getXpassword();
+		this.businessId = String.valueOf(user.getZid());
 		this.accountExpired = false;
 		this.credentialExpired = false;
 		this.accountLocked = false;
-		this.enabled =user.isActive();
+		this.enabled = true;
 		this.roles = user.getRoles();
 		this.authorities = Arrays.stream(user.getRoles().split(","))
 									.map(SimpleGrantedAuthority::new)

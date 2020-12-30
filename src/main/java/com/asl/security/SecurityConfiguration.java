@@ -29,6 +29,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 				.antMatchers(
+					"/",
+					"/business",
+					"/login/fakelogin",
 					"/login-assets/**"
 					).permitAll()
 				.anyRequest().authenticated()
@@ -36,7 +39,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.formLogin()
 				.loginPage("/login")
 				.failureUrl("/login?error")
-				.usernameParameter("username").passwordParameter("password")
+				//.usernameParameter("username").passwordParameter("password")
 				.permitAll()
 			.and()
 				.logout()
