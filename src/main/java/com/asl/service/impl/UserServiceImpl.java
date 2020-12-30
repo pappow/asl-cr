@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
 	
 		List<Xusers> list = em.createQuery("SELECT u FROM Xusers u WHERE u.zemail=:username AND u.zid=:zid", Xusers.class)
 				.setParameter("username", username)
-				.setParameter("zid", businessId)
+				.setParameter("zid", Integer.valueOf(businessId))
 				.getResultList();
 
 		return list == null ? null : list.stream().findFirst().orElse(null);

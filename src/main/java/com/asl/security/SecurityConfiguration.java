@@ -1,33 +1,42 @@
 package com.asl.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
  * @author Zubayer Ahamed
  * @since Dec 28, 2020
  */
+@SuppressWarnings("deprecation")
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired private UserDetailsService userDetailsService;
-	@Autowired private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+	@Bean
+	public static NoOpPasswordEncoder passwordEncoder() {
+		return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
+	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService)
-			.passwordEncoder(bCryptPasswordEncoder);
+			.passwordEncoder(passwordEncoder());
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
+		http.addFilterBefore(authenticationFilter(), UsernamePasswordAuthenticationFilter.class)
+			.authorizeRequests()
 				.antMatchers(
 					"/",
 					"/business",
@@ -53,5 +62,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.accessDeniedPage("/accessdenied")
 			.and()
 				.csrf().disable();
+	}
+
+	public SimpleAuthenticationFilter authenticationFilter() throws Exception {
+		SimpleAuthenticationFilter filter = new SimpleAuthenticationFilter();
+		filter.setAuthenticationManager(authenticationManagerBean());
+		filter.setAuthenticationFailureHandler(authenticationFailureHandler());
+		return filter;
+	}
+
+	@Bean
+	public AuthenticationFailureHandler authenticationFailureHandler() {
+		return new CustomAuthenticationFailureHandler();
 	}
 }

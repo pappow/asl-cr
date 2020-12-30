@@ -2,11 +2,62 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<title>Business Dashboard</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style type="text/css">
+			body{
+				padding: 0; margin: 0;
+				text-align: center;
+			}
+			.business-container{
+				padding: 10px 50px;
+			}
+			.business-page-heading{
+				padding: 0px;
+				margin: 0px;
+				color: #0987c5;
+				font-weight: bold;
+				font-size: 70px;
+			}
+			.business-box{
+				margin-top: 20px;
+			}
+			.business-submit-button{
+				width: 100%;
+				padding: 20px 0px;
+				box-sizing: border-box;
+				color: #fff;
+				background: #29af70;
+				border: 1px solid #09a25a;
+				font-size: 20px;
+			}
+			.brand-logo{
+				width: 10%;
+				margin: 20px auto;
+			}
+			.brand-logo img{
+				width: 100%;
+				height: auto;
+			}
+		</style>
 	</head>
 	<body>
-		Business dashbooard
-		
-		
-		
+
+		<div class="business-container">
+			<div class="brand-logo">
+				<img th:src="@{/login-assets/img/asl.png}"/>
+			</div>
+			<h1 class="text-center business-page-heading">Choose Your Business</h1>
+			<div th:each="business : ${businesses}" class="business-box">
+				<form class="sign-in-form" role="form" th:action="@{/login}" method="post" autocomplete="off">
+					<input type="hidden" name="username" th:value="${business.username}"/>
+					<input type="hidden" name="password" th:value="${business.password}"/>
+					<input type="hidden" name="businessid" th:value="${business.businessid}"/>
+					<input type="submit" class="business-submit-button" th:value="${business.businessName}"/>
+				</form>
+			</div>
+		</div>
+
 	</body>
 </html>

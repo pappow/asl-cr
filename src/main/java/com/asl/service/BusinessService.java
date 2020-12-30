@@ -11,5 +11,5 @@ import com.asl.entity.Zbusiness;
 @Component
 public interface BusinessService {
 
-	public Zbusiness findBById(String businessId);
+	public Zbusiness findBById(Integer businessId);
 }

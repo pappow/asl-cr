@@ -49,5 +49,4 @@ public class SearchSuggestController extends ASLAbstractController {
 		return list;
 	}
 
-	
 }

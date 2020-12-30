@@ -29,7 +29,12 @@ $(document).ready(function(){
 						}, 1500);
 					}
 				} else {
-					alert(data.message);
+					$('.error-message-container').html(data.message);
+					$('form#fakeloginform').trigger("reset");
+					$('.error-message-container').css("display","block");
+					setTimeout(() => {
+						$('.error-message-container').css("display","none");
+					}, 2000);
 				}
 			}, 
 			error : function(jqXHR, status, errorThrown){

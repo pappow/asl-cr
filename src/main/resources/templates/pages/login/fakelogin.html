@@ -15,10 +15,11 @@
 			<div class="signin-signup">
 				<a class="basePath" th:href="@{/}"></a>
 				<form id="fakeloginform" class="sign-in-form" role="form" th:action="@{/login/fakelogin}" method="post" autocomplete="off">
-					<h2 class="title" style="color: #fff;">Fake Sign in</h2>
+					<h2 class="title" style="color: #fff;">Sign in</h2>
 
 					<div th:if="${param.error}" style="color: red; margin-bottom: 10px; text-align: center; margin-top: -10px;">Wrong credential</div>
 					<div th:if="${param.logout}" style="color: #fff; margin-bottom: 10px; text-align: center; margin-top: -10px;">You have been logged out</div>
+					<div class="error-message-container" style="color: #dbff13; display: none; margin-bottom: 10px; text-align: center; margin-top: -10px;">You have been logged out</div>
 
 					<div class="input-field" data-validate = "Valid username required">
 						<i class="fas fa-user"></i> 
