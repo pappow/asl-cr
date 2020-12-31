@@ -39,6 +39,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.authorizeRequests()
 				.antMatchers(
 					"/",
+					"/assets/**",
 					"/business",
 					"/login/fakelogin",
 					"/login-assets/**"

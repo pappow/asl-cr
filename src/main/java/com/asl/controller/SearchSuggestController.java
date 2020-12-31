@@ -42,9 +42,16 @@ public class SearchSuggestController extends ASLAbstractController {
 
 	@GetMapping("/user/{hint}")
 	public @ResponseBody List<SearchSuggestResult> getUsers(@PathVariable String hint) {
+		StringBuilder sql = new StringBuilder("SELECT zemail, xname FROM xusers WHERE zid='"+ sessionManager.getBusinessId() +"' AND (xname LIKE '%"+ hint +"%' OR zemail LIKE '%"+ hint +"%')");
+
+		List<Map<String, Object>> result = searchService.queryForList(sql.toString());
 
 		List<SearchSuggestResult> list = new ArrayList<>();
-		list.add(new SearchSuggestResult("jojon","Jojon"));
+		result.stream().forEach(m -> {
+			String value = (String) m.get("zemail");
+			String prompt = (String) m.get("xname");
+			list.add(new SearchSuggestResult(value, prompt));
+		});
 
 		return list;
 	}

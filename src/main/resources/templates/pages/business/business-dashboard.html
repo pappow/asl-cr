@@ -1,63 +1,107 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	<head>
-		<title>Business Dashboard</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<style type="text/css">
-			body{
-				padding: 0; margin: 0;
-				text-align: center;
-			}
-			.business-container{
-				padding: 10px 50px;
-			}
-			.business-page-heading{
-				padding: 0px;
-				margin: 0px;
-				color: #0987c5;
-				font-weight: bold;
-				font-size: 70px;
+		<title>Organization</title>
+		<meta th:remove="tag" th:include="commons :: common-meta"/>
+		<meta th:remove="tag" th:include="commons :: common-css"/>
+		<meta th:remove="tag" th:include="commons :: common-js"/>
+		<style>
+			.section-body{
+				text-align:center;
 			}
 			.business-box{
-				margin-top: 20px;
+				display:inline-block;
+				width:24%;
+				margin: 0 auto;
+				box-sizing: border-box;
+				margin-top: 10px;
+				padding: 10px;
 			}
 			.business-submit-button{
 				width: 100%;
-				padding: 20px 0px;
-				box-sizing: border-box;
-				color: #fff;
+				padding: 25px 0px;
+				text-align: center;
+				display: block;
+				border: none;
 				background: #29af70;
-				border: 1px solid #09a25a;
-				font-size: 20px;
+				color: #fff;
+				font-size: 18px;
+				font-weight: bold;
+				border-radius: 5px;
+				transition: 0.5s;
 			}
-			.brand-logo{
-				width: 10%;
-				margin: 20px auto;
+			.business-submit-button i{
+				font-size: 45px;
 			}
-			.brand-logo img{
-				width: 100%;
-				height: auto;
+			.business-submit-button:hover{
+				box-shadow: 0px 0px 15px #d6cccc;
+				background: #0987c5;
+			}
+
+			@media only screen and (max-width: 600px) {
+				.business-box{
+					width:49%;
+				}
 			}
 		</style>
 	</head>
 	<body>
 
-		<div class="business-container">
-			<div class="brand-logo">
-				<img th:src="@{/login-assets/img/asl.png}"/>
-			</div>
-			<h1 class="text-center business-page-heading">Choose Your Business</h1>
-			<div th:each="business : ${businesses}" class="business-box">
-				<form class="sign-in-form" role="form" th:action="@{/login}" method="post" autocomplete="off">
-					<input type="hidden" name="username" th:value="${business.username}"/>
-					<input type="hidden" name="password" th:value="${business.password}"/>
-					<input type="hidden" name="businessid" th:value="${business.businessid}"/>
-					<input type="submit" class="business-submit-button" th:value="${business.businessName}"/>
-				</form>
+		<!-- Header section -->
+		<div class="header-section" th:include="commons :: header-section"></div>
+
+		<!-- Menu section -->
+		<div class="navbar-inverse menu-section">
+			<div class="container">
+				<div class="row">
+					<nav class="navbar navbar-inverse">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+										<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+									</button>
+								</div>
+								<div class="collapse navbar-collapse" id="myNavbar">
+									<div class="nav navbar-nav">
+										<li class="active"><a th:href="@{/business}">Organization</a></li>
+									</div>
+								</div>
+							</div>
+						</div>
+					</nav>
+				</div>
 			</div>
 		</div>
 
+		<!-- Content section -->
+		<div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 content-area">
+						<!-- Section data maintenance -->
+						<section id="data-maintenance" style="margin-top: 10px;">
+							<div class="section-header sectionbartoggle">
+								<h1><i class="fas fa-chevron-down"></i> Choose Your Organization</h1>
+							</div>
+							<div class="section-body togglebox">
+								<div th:each="business : ${businesses}" class="business-box">
+									<form id="${business.businessid}" class="sign-in-form" role="form" th:action="@{/login}" method="post" autocomplete="off">
+										<input type="hidden" name="username" th:value="${business.username}"/>
+										<input type="hidden" name="password" th:value="${business.password}"/>
+										<input type="hidden" name="businessid" th:value="${business.businessid}"/>
+										<button type="submit" class="business-submit-button"><i class="fas fa-hotel"></i><h4 th:text="${business.businessName}"></h4></button>
+									</form>
+								</div>
+							</div>
+						</section>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer section -->
+		<div class="footer-section" th:include="commons :: footer-section"></div>
 	</body>
 </html>

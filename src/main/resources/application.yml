@@ -29,8 +29,8 @@ spring:
 #    url: jdbc:sqlserver://localhost;databaseName=EASYDB
 #    url: jdbc:sqlserver://178.238.224.154;databaseName=ZABDB
     username: sa
-    password: zubayer%123
-#    password: sql@s3rv3r
+#    password: zubayer%123
+    password: sql@s3rv3r
     tomcat:
       max-wait: 20000
       max-active: 50
