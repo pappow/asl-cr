@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import com.asl.model.DBConfig;
 import com.asl.service.PrintingService;
-import com.asl.util.ZabCRViewer;
 import com.crystaldecisions.sdk.occa.report.application.DataDefController;
 import com.crystaldecisions.sdk.occa.report.application.OpenReportOptions;
 import com.crystaldecisions.sdk.occa.report.application.ReportClientDocument;
@@ -64,7 +63,7 @@ public class PrintingServiceImpl implements PrintingService {
 			logonDataSource(clientDoc, dbConfig);
 
 			for(Map.Entry<String, Object> param : reportParams.entrySet()) {
-				ZabCRViewer.addDiscreteParameterValue(clientDoc, "", param.getKey(), param.getValue());
+				addDiscreteParameterValue(clientDoc, "", param.getKey(), param.getValue());
 			}
 
 			PDFExportFormatOptions pdfOptions = new PDFExportFormatOptions();
