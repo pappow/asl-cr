@@ -1,4 +1,4 @@
-package com.asl.service.impl;
+package com.asl.service.report.impl;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -14,14 +14,14 @@ import com.asl.model.FormFieldBuilder;
  * @author Zubayer Ahamed
  * @since Dec 27, 2020
  */
-@Service("smwssService")
-public class SMWSSReportFieldServiceImpl extends AbstractReportService {
+@Service("srdService")
+public class SRDReportFieldServiceImpl extends AbstractReportService {
 
 	public List<FormFieldBuilder> getReportFields() {
-		return generateSMWSS();
+		return generateSRD();
 	}
 
-	private List<FormFieldBuilder> generateSMWSS() {
+	private List<FormFieldBuilder> generateSRD() {
 		List<FormFieldBuilder> fieldsList = new ArrayList<>();
 
 		// zid
@@ -39,7 +39,13 @@ public class SMWSSReportFieldServiceImpl extends AbstractReportService {
 		outletOptions.add(new DropdownOption("04", "04"));
 		fieldsList.add(FormFieldBuilder.generateDropdownField(4, "Outlet", outletOptions, null, false));
 
-		fieldsList.add(FormFieldBuilder.generateSearchField(5, "Item", "search/item/itemcode", "", false));
+		List<DropdownOption> postOptions = new ArrayList<>();
+		postOptions.add(new DropdownOption("", "Select"));
+		postOptions.add(new DropdownOption("01", "01"));
+		postOptions.add(new DropdownOption("02", "02"));
+		postOptions.add(new DropdownOption("03", "03"));
+		postOptions.add(new DropdownOption("04", "04"));
+		fieldsList.add(FormFieldBuilder.generateDropdownField(5, "Pos terminal", postOptions, null, false));
 
 		List<DropdownOption> reportViewOptions = new ArrayList<>();
 		reportViewOptions.add(new DropdownOption("PDF", "PDF"));

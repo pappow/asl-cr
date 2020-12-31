@@ -1,4 +1,4 @@
-package com.asl.service.impl;
+package com.asl.service.report.impl;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -14,14 +14,14 @@ import com.asl.model.FormFieldBuilder;
  * @author Zubayer Ahamed
  * @since Dec 27, 2020
  */
-@Service("iphvService")
-public class IPHVReportFieldServiceImpl extends AbstractReportService {
+@Service("iwssvService")
+public class IWSSVReportFieldServiceImpl extends AbstractReportService {
 
 	public List<FormFieldBuilder> getReportFields() {
-		return generateIPHV();
+		return generateIWSSV();
 	}
 
-	private List<FormFieldBuilder> generateIPHV() {
+	private List<FormFieldBuilder> generateIWSSV() {
 		List<FormFieldBuilder> fieldsList = new ArrayList<>();
 
 		// zid

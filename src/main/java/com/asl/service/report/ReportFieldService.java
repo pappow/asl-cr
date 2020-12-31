@@ -1,4 +1,4 @@
-package com.asl.service;
+package com.asl.service.report;
 
 import java.util.List;
 

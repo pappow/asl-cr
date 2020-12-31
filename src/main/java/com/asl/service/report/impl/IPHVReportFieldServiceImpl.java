@@ -1,4 +1,4 @@
-package com.asl.service.impl;
+package com.asl.service.report.impl;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -14,14 +14,14 @@ import com.asl.model.FormFieldBuilder;
  * @author Zubayer Ahamed
  * @since Dec 27, 2020
  */
-@Service("vrService")
-public class VRReportFieldServiceImpl extends AbstractReportService {
+@Service("iphvService")
+public class IPHVReportFieldServiceImpl extends AbstractReportService {
 
 	public List<FormFieldBuilder> getReportFields() {
-		return generateVR();
+		return generateIPHV();
 	}
 
-	private List<FormFieldBuilder> generateVR() {
+	private List<FormFieldBuilder> generateIPHV() {
 		List<FormFieldBuilder> fieldsList = new ArrayList<>();
 
 		// zid
@@ -31,20 +31,11 @@ public class VRReportFieldServiceImpl extends AbstractReportService {
 
 		fieldsList.add(FormFieldBuilder.generateDateField(3, "To date", new Date(), true));
 
-		List<DropdownOption> outletOptions = new ArrayList<>();
-		outletOptions.add(new DropdownOption("", "Select"));
-		outletOptions.add(new DropdownOption("01", "01"));
-		outletOptions.add(new DropdownOption("02", "02"));
-		outletOptions.add(new DropdownOption("03", "03"));
-		outletOptions.add(new DropdownOption("04", "04"));
-		fieldsList.add(FormFieldBuilder.generateDropdownField(4, "Outlet", outletOptions, null, false));
-
-//		fieldsList.add(FormFieldBuilder.generateSearchField(5, "Shopno", "search/item/itemcode", "", false));
-		fieldsList.add(FormFieldBuilder.generateHiddenField(5, ""));
+		fieldsList.add(FormFieldBuilder.generateSearchField(4, "Item", "search/item/itemcode", "", false));
 
 		List<DropdownOption> reportViewOptions = new ArrayList<>();
 		reportViewOptions.add(new DropdownOption("PDF", "PDF"));
-		fieldsList.add(FormFieldBuilder.generateDropdownField(6, "Report view", reportViewOptions, "PDF", true));
+		fieldsList.add(FormFieldBuilder.generateDropdownField(5, "Report view", reportViewOptions, "PDF", true));
 
 		fieldsList.sort(Comparator.comparing(FormFieldBuilder::getSeqn));
 		return fieldsList;

@@ -1,4 +1,4 @@
-package com.asl.service.impl;
+package com.asl.service.report.impl;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -14,14 +14,14 @@ import com.asl.model.FormFieldBuilder;
  * @author Zubayer Ahamed
  * @since Dec 27, 2020
  */
-@Service("iwsstService")
-public class IWSSTReportFieldServiceImpl extends AbstractReportService {
+@Service("iphService")
+public class IPHReportFieldServiceImpl extends AbstractReportService {
 
 	public List<FormFieldBuilder> getReportFields() {
-		return generateIWSST();
+		return generateIPH();
 	}
 
-	private List<FormFieldBuilder> generateIWSST() {
+	private List<FormFieldBuilder> generateIPH() {
 		List<FormFieldBuilder> fieldsList = new ArrayList<>();
 
 		// zid
@@ -31,19 +31,11 @@ public class IWSSTReportFieldServiceImpl extends AbstractReportService {
 
 		fieldsList.add(FormFieldBuilder.generateDateField(3, "To date", new Date(), true));
 
-		List<DropdownOption> outletOptions = new ArrayList<>();
-		outletOptions.add(new DropdownOption("", "Select"));
-		outletOptions.add(new DropdownOption("01", "01"));
-		outletOptions.add(new DropdownOption("02", "02"));
-		outletOptions.add(new DropdownOption("03", "03"));
-		outletOptions.add(new DropdownOption("04", "04"));
-		fieldsList.add(FormFieldBuilder.generateDropdownField(4, "Outlet", outletOptions, null, false));
-
-		fieldsList.add(FormFieldBuilder.generateSearchField(5, "Item", "search/item/itemcode", "", false));
+		fieldsList.add(FormFieldBuilder.generateSearchField(4, "Item", "search/item/itemcode", "", false));
 
 		List<DropdownOption> reportViewOptions = new ArrayList<>();
 		reportViewOptions.add(new DropdownOption("PDF", "PDF"));
-		fieldsList.add(FormFieldBuilder.generateDropdownField(6, "Report view", reportViewOptions, "PDF", true));
+		fieldsList.add(FormFieldBuilder.generateDropdownField(5, "Report view", reportViewOptions, "PDF", true));
 
 		fieldsList.sort(Comparator.comparing(FormFieldBuilder::getSeqn));
 		return fieldsList;

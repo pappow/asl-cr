@@ -9,7 +9,7 @@ import com.asl.config.AppConfig;
 import com.asl.enums.ReportMenu;
 import com.asl.model.ResponseHelper;
 import com.asl.service.ASLSessionManager;
-import com.asl.service.ReportFieldService;
+import com.asl.service.report.ReportFieldService;
 
 import lombok.extern.slf4j.Slf4j;
 

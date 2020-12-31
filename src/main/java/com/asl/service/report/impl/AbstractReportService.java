@@ -1,10 +1,10 @@
-package com.asl.service.impl;
+package com.asl.service.report.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.asl.service.ASLSessionManager;
-import com.asl.service.ReportFieldService;
+import com.asl.service.report.ReportFieldService;
 
 /**
  * @author Zubayer Ahamed

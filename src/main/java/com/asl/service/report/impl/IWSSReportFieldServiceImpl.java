@@ -1,4 +1,4 @@
-package com.asl.service.impl;
+package com.asl.service.report.impl;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -14,14 +14,14 @@ import com.asl.model.FormFieldBuilder;
  * @author Zubayer Ahamed
  * @since Dec 27, 2020
  */
-@Service("srsService")
-public class SRSReportFieldServiceImpl extends AbstractReportService {
+@Service("iwssService")
+public class IWSSReportFieldServiceImpl extends AbstractReportService {
 
 	public List<FormFieldBuilder> getReportFields() {
-		return generateSRS();
+		return generateIWSS();
 	}
 
-	private List<FormFieldBuilder> generateSRS() {
+	private List<FormFieldBuilder> generateIWSS() {
 		List<FormFieldBuilder> fieldsList = new ArrayList<>();
 
 		// zid
@@ -39,22 +39,11 @@ public class SRSReportFieldServiceImpl extends AbstractReportService {
 		outletOptions.add(new DropdownOption("04", "04"));
 		fieldsList.add(FormFieldBuilder.generateDropdownField(4, "Outlet", outletOptions, null, false));
 
-		List<DropdownOption> postOptions = new ArrayList<>();
-		postOptions.add(new DropdownOption("", "Select"));
-		postOptions.add(new DropdownOption("01", "01"));
-		postOptions.add(new DropdownOption("02", "02"));
-		postOptions.add(new DropdownOption("03", "03"));
-		postOptions.add(new DropdownOption("04", "04"));
-		fieldsList.add(FormFieldBuilder.generateDropdownField(5, "Pos terminal", postOptions, null, false));
-
-		List<DropdownOption> reportTypeOptions = new ArrayList<>();
-		reportTypeOptions.add(new DropdownOption("Synopsis", "Synopsis"));
-		reportTypeOptions.add(new DropdownOption("Summary", "Summary"));
-		fieldsList.add(FormFieldBuilder.generateDropdownField(6, "Report type", reportTypeOptions, "Summary", true));
+		fieldsList.add(FormFieldBuilder.generateSearchField(5, "Item", "search/item/itemcode", "", false));
 
 		List<DropdownOption> reportViewOptions = new ArrayList<>();
 		reportViewOptions.add(new DropdownOption("PDF", "PDF"));
-		fieldsList.add(FormFieldBuilder.generateDropdownField(7, "Report view", reportViewOptions, "PDF", true));
+		fieldsList.add(FormFieldBuilder.generateDropdownField(6, "Report view", reportViewOptions, "PDF", true));
 
 		fieldsList.sort(Comparator.comparing(FormFieldBuilder::getSeqn));
 		return fieldsList;
