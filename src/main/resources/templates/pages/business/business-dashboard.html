@@ -93,6 +93,46 @@
 										<button type="submit" class="business-submit-button"><i class="fas fa-hotel"></i><h4 th:text="${business.businessName}"></h4></button>
 									</form>
 								</div>
+								<div th:each="business : ${businesses}" class="business-box">
+									<form id="${business.businessid}" class="sign-in-form" role="form" th:action="@{/login}" method="post" autocomplete="off">
+										<input type="hidden" name="username" th:value="${business.username}"/>
+										<input type="hidden" name="password" th:value="${business.password}"/>
+										<input type="hidden" name="businessid" th:value="${business.businessid}"/>
+										<button type="submit" class="business-submit-button"><i class="fas fa-hotel"></i><h4>Cafe Rio</h4></button>
+									</form>
+								</div>
+								<div th:each="business : ${businesses}" class="business-box">
+									<form id="${business.businessid}" class="sign-in-form" role="form" th:action="@{/login}" method="post" autocomplete="off">
+										<input type="hidden" name="username" th:value="${business.username}"/>
+										<input type="hidden" name="password" th:value="${business.password}"/>
+										<input type="hidden" name="businessid" th:value="${business.businessid}"/>
+										<button type="submit" class="business-submit-button"><i class="fas fa-hotel"></i><h4>Chunking Express</h4></button>
+									</form>
+								</div>
+								<div th:each="business : ${businesses}" class="business-box">
+									<form id="${business.businessid}" class="sign-in-form" role="form" th:action="@{/login}" method="post" autocomplete="off">
+										<input type="hidden" name="username" th:value="${business.username}"/>
+										<input type="hidden" name="password" th:value="${business.password}"/>
+										<input type="hidden" name="businessid" th:value="${business.businessid}"/>
+										<button type="submit" class="business-submit-button"><i class="fas fa-hotel"></i><h4>LaBumba</h4></button>
+									</form>
+								</div>
+								<div th:each="business : ${businesses}" class="business-box">
+									<form id="${business.businessid}" class="sign-in-form" role="form" th:action="@{/login}" method="post" autocomplete="off">
+										<input type="hidden" name="username" th:value="${business.username}"/>
+										<input type="hidden" name="password" th:value="${business.password}"/>
+										<input type="hidden" name="businessid" th:value="${business.businessid}"/>
+										<button type="submit" class="business-submit-button"><i class="fas fa-hotel"></i><h4>DhanShiri</h4></button>
+									</form>
+								</div>
+								<div th:each="business : ${businesses}" class="business-box">
+									<form id="${business.businessid}" class="sign-in-form" role="form" th:action="@{/login}" method="post" autocomplete="off">
+										<input type="hidden" name="username" th:value="${business.username}"/>
+										<input type="hidden" name="password" th:value="${business.password}"/>
+										<input type="hidden" name="businessid" th:value="${business.businessid}"/>
+										<button type="submit" class="business-submit-button"><i class="fas fa-hotel"></i><h4>KFC</h4></button>
+									</form>
+								</div>
 							</div>
 						</section>
 
